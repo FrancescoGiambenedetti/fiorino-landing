@@ -7,6 +7,12 @@
   <meta name="description" content="Fiorino è l'app per tenere i conti senza stress. Entrate, uscite, budget mensili, proiezioni e storico in un'unica schermata pulita." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="stylesheet" href="style.css" />
+  <script>
+    (function(){
+      var t = localStorage.getItem('fiorino_theme');
+      if (t && t !== 'default') document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
 </head>
 <body>
 
@@ -15,7 +21,14 @@
   <div class="nav-logo">
     <img src="logo.png" alt="Fiorino" />
   </div>
-  <a href="https://fiorino.378gradi.com" class="nav-cta">Accedi</a>
+  <div class="nav-right">
+    <select id="theme-select" class="theme-select" aria-label="Cambia layout">
+      <option value="default">Default</option>
+      <option value="blu">Blu</option>
+      <option value="invertito">Colori invertiti</option>
+    </select>
+    <a href="https://fiorino.378gradi.com" class="nav-cta">Accedi</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -23,7 +36,7 @@
   <span class="hero-badge">Versione 1.0 — in uso da gennaio 2025</span>
   <h1>I tuoi soldi, finalmente chiari.</h1>
   <p>Fiorino è l'app per tenere i conti senza stress. Entrate, uscite, budget mensili, proiezioni e storico in un'unica schermata pulita.</p>
-  <a href="https://fiorino.378gradi.com" class="btn btn-primary">Inizia subito →</a>
+  <a href="https://fiorino.378gradi.com" class="btn btn-primary">Inizia subito</a>
   <p class="hero-disclaimer">Gratis. Nessuna carta richiesta.</p>
 </section>
 
@@ -200,7 +213,7 @@
 <section class="cta-final">
   <h2>Prova Fiorino adesso.</h2>
   <p>Nessuna installazione. Funziona dal browser.</p>
-  <a href="https://fiorino.378gradi.com" class="btn btn-primary">Accedi gratuitamente →</a>
+  <a href="https://fiorino.378gradi.com" class="btn btn-primary">Accedi gratuitamente</a>
 </section>
 
 <!-- FOOTER -->
@@ -216,5 +229,19 @@
   <p class="footer-muted">© 2026 Tutti i diritti riservati</p>
 </footer>
 
+
+<script>
+  (function(){
+    var sel = document.getElementById('theme-select');
+    var saved = localStorage.getItem('fiorino_theme') || 'default';
+    sel.value = saved;
+    sel.addEventListener('change', function(){
+      var v = sel.value;
+      localStorage.setItem('fiorino_theme', v);
+      if (v === 'default') document.documentElement.removeAttribute('data-theme');
+      else document.documentElement.setAttribute('data-theme', v);
+    });
+  })();
+</script>
 </body>
 </html>
