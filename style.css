@@ -323,34 +323,21 @@ footer {
 }
 
 .footer-product { font-size: 0.875rem; font-weight: 700; color: var(--fg); }
-.footer-tagline { font-size: 0.75rem; color: var(--muted); }
 
-.footer-by {
+.footer-muted { font-size: 0.75rem; color: var(--muted); }
+
+.footer-link {
   font-size: 0.75rem;
   color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
-
-.footer-by a { color: var(--fg); font-weight: 500; }
-.footer-by a:hover { text-decoration: underline; }
 
 .footer-links {
   display: flex;
   align-items: center;
-  gap: 0.625rem;
-  flex-wrap: wrap;
-  justify-content: center;
+  gap: 0.75rem;
 }
-
-.footer-links a {
-  font-size: 0.75rem;
-  color: var(--muted);
-}
-
-.footer-links a:hover { text-decoration: underline; }
-
-.footer-sep { color: var(--border); font-size: 0.75rem; }
-
-.footer-copy { font-size: 0.75rem; color: var(--muted); margin-top: 0.25rem; }
 
 @media (min-width: 640px) {
   nav { padding: 0.875rem 2rem; }
