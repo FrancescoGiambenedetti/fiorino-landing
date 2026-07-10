@@ -7,12 +7,6 @@
   <meta name="description" content="Fiorino è l'app per tenere i conti senza stress. Entrate, uscite, budget mensili, proiezioni e storico in un'unica schermata pulita." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="stylesheet" href="style.css" />
-  <script>
-    (function(){
-      var t = localStorage.getItem('fiorino_theme');
-      if (t && t !== 'default') document.documentElement.setAttribute('data-theme', t);
-    })();
-  </script>
 </head>
 <body>
 
@@ -21,14 +15,7 @@
   <div class="nav-logo">
     <img src="logo.png" alt="Fiorino" />
   </div>
-  <div class="nav-right">
-    <select id="theme-select" class="theme-select" aria-label="Cambia layout">
-      <option value="default">Default</option>
-      <option value="blu">Blu</option>
-      <option value="invertito">Colori invertiti</option>
-    </select>
-    <a href="https://fiorino.378gradi.com" class="nav-cta">Accedi</a>
-  </div>
+  <a href="https://fiorino.378gradi.com" class="nav-cta">Accedi</a>
 </nav>
 
 <!-- HERO -->
@@ -230,18 +217,5 @@
 </footer>
 
 
-<script>
-  (function(){
-    var sel = document.getElementById('theme-select');
-    var saved = localStorage.getItem('fiorino_theme') || 'default';
-    sel.value = saved;
-    sel.addEventListener('change', function(){
-      var v = sel.value;
-      localStorage.setItem('fiorino_theme', v);
-      if (v === 'default') document.documentElement.removeAttribute('data-theme');
-      else document.documentElement.setAttribute('data-theme', v);
-    });
-  })();
-</script>
 </body>
 </html>
