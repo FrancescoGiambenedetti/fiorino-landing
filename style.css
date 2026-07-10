@@ -433,27 +433,58 @@ section h2 {
   color: var(--muted);
 }
 
-/* Replica bg-muted px-4 py-3 text-base */
+/* Replica bg-muted px-4 py-3 text-base — stessa tinta dell'app (zinc-100) */
 .demo-input-static,
-.demo-input,
-.demo-select {
+.demo-input {
   display: block;
   width: 100%;
-  background: var(--border);  /* --muted equivalente */
+  background: #f4f4f5;
   border: none;
   outline: none;
   font-family: inherit;
   font-size: 1rem;
   color: var(--fg);
   padding: 0.75rem 1rem;
-  border-radius: 0.375rem;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+/* Select con freccia custom, stesso stile */
+.demo-select-wrap {
+  position: relative;
+}
+.demo-select {
+  display: block;
+  width: 100%;
+  background: #f4f4f5;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--fg);
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  border-radius: 0;
   box-sizing: border-box;
   -webkit-appearance: none;
   appearance: none;
+  cursor: pointer;
+}
+.demo-select-wrap::after {
+  content: '';
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--muted);
+  pointer-events: none;
 }
 
 .demo-input-static { color: var(--muted); }
-.demo-input::placeholder { color: var(--muted); }
+.demo-input::placeholder { color: #a1a1aa; }
 
 /* Bottoni — replica primaryBtnCls / secondaryBtnCls */
 .demo-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.25rem; }
@@ -467,11 +498,11 @@ section h2 {
   border: none;
   border-radius: 0.375rem;
   cursor: default;
-  opacity: 0.4;
+  opacity: 0.35;
 }
 
-.demo-btn-sec { background: var(--border); color: var(--fg); }
-.demo-btn-pri { background: var(--fg); color: var(--card); }
+.demo-btn-sec { background: #f4f4f5; color: var(--fg); }
+.demo-btn-pri { background: var(--fg); color: #fff; }
 
 .demo-note {
   font-size: 0.6875rem;
