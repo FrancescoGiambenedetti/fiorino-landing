@@ -244,15 +244,20 @@ section h2 {
 
 .emotional-title {
   color: #f0fdf4 !important;
-  font-size: 1.5rem !important;
-  margin-bottom: 1.25rem !important;
+  font-size: 2.25rem !important;
+  font-weight: 800 !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem !important;
 }
 
 .emotional-body {
-  font-size: 0.9375rem;
-  color: #86efac;
-  line-height: 1.7;
+  font-size: 0.875rem;
+  color: #4ade80;
+  line-height: 1.75;
   margin-bottom: 2rem;
+  max-width: 32rem;
+  opacity: 0.85;
 }
 
 /* ASPIRATION CLIMAX */
@@ -536,7 +541,7 @@ footer {
   .hero p { max-width: 28rem; }
   .screenshot-wrap { padding: 0 2rem 3rem; }
   .free-strip { padding: 1rem 2rem; }
-  .emotional-title { font-size: 2rem !important; }
+  .emotional-title { font-size: 3rem !important; }
   .aspiration-1 { font-size: 1.125rem; }
   .aspiration-2 { font-size: 1.625rem; }
   .aspiration-3 { font-size: 2.125rem; }
