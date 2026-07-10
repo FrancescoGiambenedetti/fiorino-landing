@@ -100,7 +100,7 @@ section h2 {
 }
 
 .section-body {
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   color: var(--muted);
   line-height: 1.65;
 }
@@ -132,11 +132,11 @@ section h2 {
 }
 
 .hero p {
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   color: var(--muted);
   line-height: 1.65;
   margin-bottom: 1.75rem;
-  max-width: 22rem;
+  max-width: 26rem;
   margin-left: auto;
   margin-right: auto;
 }
@@ -171,33 +171,48 @@ section h2 {
 }
 
 .free-strip p {
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   color: #166534;
   line-height: 1.5;
 }
 
-/* SCREENSHOT / VIDEO PLACEHOLDER */
-.screenshot-wrap {
-  padding: 0 1.25rem 2.5rem;
+/* FOTO */
+.photo-wrap {
   border-bottom: 1px solid var(--border);
+  line-height: 0;
 }
 
-.placeholder-img {
-  background: var(--card);
-  border: 1.5px dashed var(--border);
-  border-radius: var(--radius);
-  aspect-ratio: 9 / 16;
-  max-height: 420px;
+.photo-full {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  color: var(--muted);
+  max-height: 480px;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
 }
 
-.placeholder-img span { font-size: 0.8125rem; }
+.emotional-photo {
+  width: calc(100% + 2.5rem);
+  margin-left: -1.25rem;
+  margin-right: -1.25rem;
+  margin-top: 2rem;
+  max-height: 360px;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
+.cta-photo {
+  width: calc(100% + 2.5rem);
+  margin-left: -1.25rem;
+  margin-right: -1.25rem;
+  margin-bottom: 2rem;
+  max-height: 360px;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+
+/* VIDEO PLACEHOLDER */
 
 .placeholder-video {
   background: var(--card);
@@ -252,7 +267,7 @@ section h2 {
 }
 
 .emotional-body {
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: #4ade80;
   line-height: 1.75;
   margin-bottom: 2rem;
@@ -338,7 +353,7 @@ section h2 {
 }
 
 .cta-mid p {
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: var(--muted);
   margin-bottom: 1.25rem;
 }
@@ -360,7 +375,7 @@ section h2 {
 }
 
 .problem-quote {
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   font-weight: 600;
   font-style: italic;
   color: var(--fg);
@@ -369,7 +384,7 @@ section h2 {
 }
 
 .problem-desc {
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   color: var(--green);
   font-weight: 500;
   line-height: 1.4;
@@ -404,7 +419,7 @@ section h2 {
 }
 
 .vantaggio p {
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   color: var(--muted);
   line-height: 1.5;
 }
@@ -436,7 +451,7 @@ section h2 {
 }
 
 .feature-card p {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: var(--muted);
   line-height: 1.45;
 }
@@ -477,7 +492,7 @@ section h2 {
 .faq-item[open] summary::after { content: '−'; }
 
 .faq-item p {
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   color: var(--muted);
   line-height: 1.6;
   padding-bottom: 1rem;
@@ -499,7 +514,7 @@ section h2 {
 }
 
 .cta-final p {
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: var(--muted);
   margin-bottom: 1.5rem;
 }
@@ -539,7 +554,6 @@ footer {
   .hero { padding: 4.5rem 2rem 3rem; }
   .hero h1 { font-size: 2.5rem; }
   .hero p { max-width: 28rem; }
-  .screenshot-wrap { padding: 0 2rem 3rem; }
   .free-strip { padding: 1rem 2rem; }
   .emotional-title { font-size: 3rem !important; }
   .aspiration-1 { font-size: 1.125rem; }
@@ -549,5 +563,18 @@ footer {
   .problem-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+  }
+  .photo-full { max-height: 560px; }
+  .emotional-photo {
+    width: calc(100% + 4rem);
+    margin-left: -2rem;
+    margin-right: -2rem;
+    max-height: 440px;
+  }
+  .cta-photo {
+    width: calc(100% + 4rem);
+    margin-left: -2rem;
+    margin-right: -2rem;
+    max-height: 440px;
   }
 }
