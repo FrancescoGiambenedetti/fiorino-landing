@@ -247,22 +247,37 @@ section h2 {
 
 .btn-primary { background: var(--green); color: #fff; }
 
-/* EMOTIVITÀ — dark green sul testo nella split */
+/* EMOTIVITÀ SPLIT */
 .emotional-split {
   background: #052e16;
   color: #f0fdf4;
-  border-bottom-color: #14532d;
 }
 
-.emotional-split .label { color: #4ade80; }
-.emotional-split h2 { color: #f0fdf4; }
-.emotional-split .section-body { color: #86efac; opacity: 0.9; }
+.emotional-label { color: #4ade80; }
 
-/* EMOTIVITÀ — dark green, impactful (legacy, unused) */
-.emotional {
-  background: #052e16;
+.emotional-h2 {
   color: #f0fdf4;
-  border-bottom-color: #14532d;
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 0;
+}
+
+.emotional-body {
+  font-size: 1rem;
+  color: #86efac;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.emotional-split .split-photo {
+  border-radius: 0;
+  aspect-ratio: 3 / 4;
+  object-position: center 15%;
+  height: 100%;
+  max-height: 480px;
+  width: 100%;
 }
 
 .emotional .label-light {
@@ -306,34 +321,34 @@ section h2 {
 
 /* Studia — piccolo, celeste */
 .aspiration-1 {
-  font-size: 1rem;
+  font-size: 0.875rem;
   color: #0ea5e9;
   background: #0c4a6e;
-  padding: 0.375rem 0.75rem;
+  padding: 0.3rem 0.625rem;
 }
 
 /* Viaggia — medio, teal */
 .aspiration-2 {
-  font-size: 1.375rem;
+  font-size: 1.125rem;
   color: #2dd4bf;
   background: #134e4a;
-  padding: 0.4375rem 0.875rem;
+  padding: 0.35rem 0.75rem;
 }
 
 /* Costruisci — grande, verde chiaro */
 .aspiration-3 {
-  font-size: 1.75rem;
+  font-size: 1.375rem;
   color: #4ade80;
   background: #14532d;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 0.875rem;
 }
 
-/* Cresci — il climax: massimo, inverso, grassetto */
+/* Cresci — climax: inverso, grassetto */
 .aspiration-4 {
-  font-size: 2.25rem;
+  font-size: 1.75rem;
   color: #052e16;
   background: #4ade80;
-  padding: 0.5625rem 1.125rem;
+  padding: 0.45rem 1rem;
   font-weight: 800;
 }
 
@@ -567,11 +582,11 @@ footer {
   .hero h1 { font-size: 2.75rem; }
   .hero p { max-width: 28rem; }
   .free-strip { padding: 1rem 2rem; }
-  .emotional-title { font-size: 3rem !important; }
-  .aspiration-1 { font-size: 1.125rem; }
-  .aspiration-2 { font-size: 1.625rem; }
-  .aspiration-3 { font-size: 2.125rem; }
-  .aspiration-4 { font-size: 2.75rem; }
+  .emotional-h2 { font-size: 2.25rem; }
+  .aspiration-1 { font-size: 1rem; }
+  .aspiration-2 { font-size: 1.25rem; }
+  .aspiration-3 { font-size: 1.625rem; }
+  .aspiration-4 { font-size: 2rem; }
   .problem-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
