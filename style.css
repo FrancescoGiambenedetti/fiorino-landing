@@ -176,40 +176,41 @@ section h2 {
   line-height: 1.5;
 }
 
-/* FOTO */
-.photo-wrap {
-  border-bottom: 1px solid var(--border);
-  line-height: 0;
+/* SPLIT SECTIONS */
+.split-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2.5rem 1.25rem;
+  border-bottom: none;
 }
 
-.photo-full {
+.split-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.split-text .btn { margin-top: 0.5rem; align-self: flex-start; }
+
+.split-photo-wrap {
+  flex-shrink: 0;
+}
+
+.split-photo {
   width: 100%;
-  max-height: 480px;
-  object-fit: cover;
-  object-position: center 30%;
-  display: block;
-}
-
-.emotional-photo {
-  width: calc(100% + 2.5rem);
-  margin-left: -1.25rem;
-  margin-right: -1.25rem;
-  margin-top: 2rem;
-  max-height: 360px;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   object-position: center 20%;
   display: block;
+  border-radius: var(--radius);
 }
 
-.cta-photo {
-  width: calc(100% + 2.5rem);
-  margin-left: -1.25rem;
-  margin-right: -1.25rem;
-  margin-bottom: 2rem;
-  max-height: 360px;
-  object-fit: cover;
-  object-position: center 30%;
-  display: block;
+.separator {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
 }
 
 /* VIDEO PLACEHOLDER */
@@ -246,7 +247,18 @@ section h2 {
 
 .btn-primary { background: var(--green); color: #fff; }
 
-/* EMOTIVITÀ — dark green, impactful */
+/* EMOTIVITÀ — dark green sul testo nella split */
+.emotional-split {
+  background: #052e16;
+  color: #f0fdf4;
+  border-bottom-color: #14532d;
+}
+
+.emotional-split .label { color: #4ade80; }
+.emotional-split h2 { color: #f0fdf4; }
+.emotional-split .section-body { color: #86efac; opacity: 0.9; }
+
+/* EMOTIVITÀ — dark green, impactful (legacy, unused) */
 .emotional {
   background: #052e16;
   color: #f0fdf4;
@@ -552,7 +564,7 @@ footer {
   .nav-links { display: flex; }
   section { padding: 3.5rem 2rem; }
   .hero { padding: 4.5rem 2rem 3rem; }
-  .hero h1 { font-size: 2.5rem; }
+  .hero h1 { font-size: 2.75rem; }
   .hero p { max-width: 28rem; }
   .free-strip { padding: 1rem 2rem; }
   .emotional-title { font-size: 3rem !important; }
@@ -564,17 +576,22 @@ footer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
-  .photo-full { max-height: 560px; }
-  .emotional-photo {
-    width: calc(100% + 4rem);
-    margin-left: -2rem;
-    margin-right: -2rem;
-    max-height: 440px;
+
+  /* SPLIT layout desktop */
+  .split-section {
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+    padding: 3.5rem 2rem;
   }
-  .cta-photo {
-    width: calc(100% + 4rem);
-    margin-left: -2rem;
-    margin-right: -2rem;
-    max-height: 440px;
+
+  .split-text { flex: 1; }
+
+  .split-photo-wrap {
+    flex: 0 0 42%;
+  }
+
+  .split-reverse {
+    flex-direction: row-reverse;
   }
 }
