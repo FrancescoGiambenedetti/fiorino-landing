@@ -82,6 +82,177 @@
 
 <div class="separator"></div>
 
+<!-- DEMO INTERATTIVA -->
+<section class="demo-section" id="prova">
+  <p class="label">Prova dal vivo</p>
+  <h2>Inserisci un movimento.<br>Guarda cosa succede.</h2>
+  <p class="section-body" style="margin-bottom:2rem;">Nessuna registrazione. Prova qui come funziona Fiorino.</p>
+
+  <div class="demo-grid">
+
+    <!-- STEP 1: FORM -->
+    <div class="demo-panel">
+      <div class="demo-step-label">01 — Inserisci</div>
+      <div class="demo-tabs-row">
+        <button class="demo-tab" onclick="demoSetType('entrata',this)">Entrata</button>
+        <button class="demo-tab demo-tab-active" onclick="demoSetType('uscita',this)">Uscita</button>
+      </div>
+      <div class="demo-field">
+        <span class="demo-field-label">Data</span>
+        <span class="demo-field-val" id="demo-date-display"></span>
+      </div>
+      <div class="demo-field">
+        <span class="demo-field-label">Importo (€)</span>
+        <input class="demo-input" id="demo-amount" type="text" inputmode="decimal" placeholder="0,00" oninput="demoUpdate()" autocomplete="off" />
+      </div>
+      <div class="demo-field">
+        <span class="demo-field-label">Descrizione</span>
+        <input class="demo-input" id="demo-desc" type="text" placeholder="es. Supermercato" oninput="demoUpdate()" autocomplete="off" />
+      </div>
+      <div class="demo-field demo-field-last">
+        <span class="demo-field-label">Categoria</span>
+        <select class="demo-select" id="demo-cat" onchange="demoUpdate()">
+          <option>Spesa</option>
+          <option>Trasporti</option>
+          <option>Ristorante</option>
+          <option>Salute</option>
+          <option>Svago</option>
+          <option>Stipendio</option>
+          <option>Altro</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- ARROW 1 -->
+    <div class="demo-arrow">→</div>
+
+    <!-- STEP 2: VOCE CREATA -->
+    <div class="demo-panel">
+      <div class="demo-step-label">02 — Movimento</div>
+      <div class="demo-tx-wrap">
+        <div class="demo-tx-date-row" id="out-tx-date-row"></div>
+        <div class="demo-tx-row">
+          <div class="demo-tx-dot" id="out-tx-dot"></div>
+          <div class="demo-tx-info">
+            <div class="demo-tx-desc" id="out-tx-desc">—</div>
+            <div class="demo-tx-meta">
+              <span class="demo-tx-account">Conto corrente</span>
+              <span class="demo-tx-cat" id="out-tx-cat">Spesa</span>
+            </div>
+          </div>
+          <div class="demo-tx-amount" id="out-tx-amount">—</div>
+        </div>
+        <div class="demo-tx-footer" id="out-tx-footer">
+          <span id="out-tx-type">Uscite</span>
+          <span class="demo-tx-footer-amount" id="out-tx-footer-amount">—</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARROW 2 -->
+    <div class="demo-arrow">→</div>
+
+    <!-- STEP 3: HOME -->
+    <div class="demo-panel demo-panel-dark">
+      <div class="demo-step-label demo-step-label-light">03 — Home aggiornata</div>
+      <div class="demo-home-date" id="out-home-date"></div>
+      <div class="demo-home-saldo" id="out-home-saldo">3.712,31 €</div>
+      <div class="demo-home-divider"></div>
+      <div class="demo-home-row">
+        <div>
+          <div class="demo-home-sub">Inizio mese</div>
+          <div class="demo-home-val">3.712,31 €</div>
+        </div>
+        <div style="text-align:right">
+          <div class="demo-home-sub">Fine mese</div>
+          <div class="demo-home-val" id="out-fine-mese">3.712,31 €</div>
+        </div>
+      </div>
+      <div class="demo-home-divider"></div>
+      <div class="demo-home-row">
+        <div>
+          <div class="demo-home-sub">Entrate previste</div>
+          <div class="demo-home-val demo-green" id="out-entrate">0,00 €</div>
+        </div>
+        <div style="text-align:right">
+          <div class="demo-home-sub">Uscite previste</div>
+          <div class="demo-home-val demo-red" id="out-uscite">0,00 €</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function() {
+  const INIZIO = 3712.31;
+  let tipo = 'uscita';
+
+  function fmt(n) {
+    return n.toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
+  }
+
+  window.demoSetType = function(t, btn) {
+    tipo = t;
+    document.querySelectorAll('.demo-tab').forEach(b => b.classList.remove('demo-tab-active'));
+    btn.classList.add('demo-tab-active');
+    demoUpdate();
+  };
+
+  window.demoUpdate = function() {
+    const raw = (document.getElementById('demo-amount').value || '').replace(',', '.');
+    const amount = parseFloat(raw) || 0;
+    const desc = document.getElementById('demo-desc').value;
+    const cat = document.getElementById('demo-cat').value;
+    const isUscita = tipo === 'uscita';
+
+    // Panel 2
+    document.getElementById('out-tx-desc').textContent = desc || (isUscita ? 'Spesa' : 'Entrata');
+    document.getElementById('out-tx-cat').textContent = cat;
+    document.getElementById('out-tx-dot').style.background = isUscita ? '#ef4444' : '#16a34a';
+
+    if (amount > 0) {
+      const sign = isUscita ? '-' : '+';
+      const el = document.getElementById('out-tx-amount');
+      el.textContent = sign + fmt(amount);
+      el.style.color = isUscita ? '#ef4444' : '#16a34a';
+      const fa = document.getElementById('out-tx-footer-amount');
+      fa.textContent = sign + fmt(amount);
+      fa.style.color = isUscita ? '#ef4444' : '#16a34a';
+    } else {
+      document.getElementById('out-tx-amount').textContent = '—';
+      document.getElementById('out-tx-amount').style.color = '';
+      document.getElementById('out-tx-footer-amount').textContent = '—';
+    }
+    document.getElementById('out-tx-type').textContent = isUscita ? 'Uscite' : 'Entrate';
+
+    // Panel 3
+    const fineMese = isUscita ? INIZIO - amount : INIZIO + amount;
+    document.getElementById('out-home-saldo').textContent = fmt(fineMese);
+    const fmEl = document.getElementById('out-fine-mese');
+    fmEl.textContent = fmt(fineMese);
+    fmEl.style.color = fineMese < INIZIO ? '#ef4444' : (fineMese > INIZIO ? '#16a34a' : '');
+
+    document.getElementById('out-entrate').textContent = fmt(isUscita ? 0 : amount);
+    document.getElementById('out-uscite').textContent = fmt(isUscita ? amount : 0);
+  };
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const today = new Date();
+    const shortDate = today.toLocaleDateString('it-IT');
+    const longDate = today.toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+    const capitalize = s => s.charAt(0).toUpperCase() + s.slice(1);
+
+    document.getElementById('demo-date-display').textContent = shortDate;
+    document.getElementById('out-tx-date-row').textContent = capitalize(longDate) + ' · 1 transazione';
+    document.getElementById('out-home-date').textContent = 'Saldo ad oggi: ' + capitalize(longDate);
+  });
+})();
+</script>
+
+<div class="separator"></div>
+
 <!-- IL PROBLEMA -->
 <section id="problema" class="problem-section">
   <p class="label">Il problema</p>
