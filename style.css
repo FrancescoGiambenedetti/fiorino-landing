@@ -227,7 +227,32 @@ section h2 {
   text-decoration: none;
 }
 
-.btn-primary { background: var(--fg); color: var(--bg); }
+.btn-primary { background: var(--green); color: #fff; }
+
+/* EMOTIVITÀ */
+.emotional {
+  background: var(--card);
+}
+
+.emotional-body {
+  margin-bottom: 1.5rem;
+}
+
+.aspiration-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.aspiration {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--green);
+  background: var(--green-bg);
+  border: 1px solid #a7f3c8;
+  padding: 0.4375rem 1rem;
+  letter-spacing: 0.02em;
+}
 
 /* MID CTA */
 .cta-mid {
