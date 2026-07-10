@@ -90,6 +90,8 @@ section:last-of-type { border-bottom: none; }
   margin-bottom: 0.625rem;
 }
 
+.label-light { color: #4ade80; }
+
 section h2 {
   font-size: 1.25rem;
   font-weight: 700;
@@ -229,30 +231,94 @@ section h2 {
 
 .btn-primary { background: var(--green); color: #fff; }
 
-/* EMOTIVITÀ */
+/* EMOTIVITÀ — dark green, impactful */
 .emotional {
-  background: var(--card);
+  background: #052e16;
+  color: #f0fdf4;
+  border-bottom-color: #14532d;
+}
+
+.emotional .label-light {
+  color: #4ade80;
+}
+
+.emotional-title {
+  color: #f0fdf4 !important;
+  font-size: 1.5rem !important;
+  margin-bottom: 1.25rem !important;
 }
 
 .emotional-body {
-  margin-bottom: 1.5rem;
+  font-size: 0.9375rem;
+  color: #86efac;
+  line-height: 1.7;
+  margin-bottom: 2rem;
 }
 
+/* ASPIRATION CLIMAX */
 .aspiration-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.625rem;
+  align-items: flex-end;
+  margin-bottom: 2rem;
 }
 
 .aspiration {
-  font-size: 0.875rem;
+  display: inline-block;
   font-weight: 700;
-  color: var(--green);
-  background: var(--green-bg);
-  border: 1px solid #a7f3c8;
-  padding: 0.4375rem 1rem;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  padding: 0.4rem 0.875rem;
 }
+
+/* Studia — piccolo, celeste */
+.aspiration-1 {
+  font-size: 1rem;
+  color: #0ea5e9;
+  background: #0c4a6e;
+  padding: 0.375rem 0.75rem;
+}
+
+/* Viaggia — medio, teal */
+.aspiration-2 {
+  font-size: 1.375rem;
+  color: #2dd4bf;
+  background: #134e4a;
+  padding: 0.4375rem 0.875rem;
+}
+
+/* Costruisci — grande, verde chiaro */
+.aspiration-3 {
+  font-size: 1.75rem;
+  color: #4ade80;
+  background: #14532d;
+  padding: 0.5rem 1rem;
+}
+
+/* Cresci — il climax: massimo, inverso, grassetto */
+.aspiration-4 {
+  font-size: 2.25rem;
+  color: #052e16;
+  background: #4ade80;
+  padding: 0.5625rem 1.125rem;
+  font-weight: 800;
+}
+
+/* Foto emotiva placeholder (dentro .emotional) */
+.placeholder-emotional {
+  border: 1.5px dashed #166534;
+  border-radius: var(--radius);
+  aspect-ratio: 16 / 9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #166534;
+}
+
+.placeholder-emotional span { font-size: 0.8125rem; }
 
 /* MID CTA */
 .cta-mid {
@@ -272,31 +338,36 @@ section h2 {
   margin-bottom: 1.25rem;
 }
 
-/* PROBLEMA */
+/* PROBLEMA — quote cards */
+.problem-section { background: var(--bg); }
+
 .problem-list {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 
 .problem-card {
   background: var(--card);
   border: 1px solid var(--border);
-  border-left: 3px solid var(--green);
   border-radius: var(--radius);
-  padding: 0.875rem 1rem;
+  padding: 1rem 1.125rem;
 }
 
-.problem-card h3 {
-  font-size: 0.875rem;
+.problem-quote {
+  font-size: 0.9375rem;
   font-weight: 600;
-  margin-bottom: 0.125rem;
+  font-style: italic;
+  color: var(--fg);
+  margin-bottom: 0.375rem;
+  line-height: 1.4;
 }
 
-.problem-card p {
+.problem-desc {
   font-size: 0.8125rem;
-  color: var(--muted);
-  line-height: 1.5;
+  color: var(--green);
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 /* VANTAGGI */
@@ -411,6 +482,8 @@ section h2 {
 .cta-final {
   text-align: center;
   padding: 3rem 1.25rem;
+  background: var(--green-bg);
+  border-top: 1px solid #c6e8d4;
   border-bottom: none;
 }
 
@@ -460,6 +533,16 @@ footer {
   section { padding: 3.5rem 2rem; }
   .hero { padding: 4.5rem 2rem 3rem; }
   .hero h1 { font-size: 2.5rem; }
+  .hero p { max-width: 28rem; }
   .screenshot-wrap { padding: 0 2rem 3rem; }
   .free-strip { padding: 1rem 2rem; }
+  .emotional-title { font-size: 2rem !important; }
+  .aspiration-1 { font-size: 1.125rem; }
+  .aspiration-2 { font-size: 1.625rem; }
+  .aspiration-3 { font-size: 2.125rem; }
+  .aspiration-4 { font-size: 2.75rem; }
+  .problem-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
