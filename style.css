@@ -518,7 +518,7 @@ section h2 {
   padding: 0.625rem 1rem; background: #f9f9f9;
 }
 .demo-cal-foot-col { display: flex; flex-direction: column; gap: 0.125rem; }
-.demo-cal-foot-label { font-size: 10px; color: var(--muted); font-weight: 400; }
+.demo-cal-foot-label { font-size: 10px; color: #737373; font-weight: 400; }
 .demo-cal-foot-val { font-size: 14px; font-weight: 700; }
 
 /* ── Panel 3: Hero dark ── */
