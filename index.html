@@ -229,11 +229,6 @@
     var tabsEl = document.getElementById('demo-tabs');
     if (!body) return;
 
-    if (movements.length >= 3) {
-      if (tabsEl) tabsEl.style.display = 'none';
-      body.innerHTML = '<div class="demo-max"><p>Hai inserito 3 movimenti.</p><button class="demo-reset-btn" onclick="demoReset()">Ricomincia</button><p class="demo-note">Demo: nessun dato viene salvato</p></div>';
-      return;
-    }
     if (tabsEl) tabsEl.style.display = '';
 
     var h = '<div class="df-body">';
@@ -246,12 +241,21 @@
     if (tab === 'expense') {
       h += field('Categoria', selWrap('<select id="df-cat" class="df-select">'+opts(CATS,'Spesa')+'</select>'));
     }
-    h += field('Descrizione (opzionale)', '<input id="df-desc" type="text" class="df-input" placeholder="es. Cena con amici" autocomplete="off" />');
+    h += field('Descrizione (opzionale)', '<input id="df-desc" type="text" class="df-input" placeholder="" autocomplete="off" />');
 
     h += '<div class="df-btns"><button class="df-btn-sec" onclick="demoAnnulla()">Annulla</button><button class="df-btn-pri" onclick="demoSave()">Salva</button></div>';
     h += '<p class="demo-note">Demo: nessun dato viene salvato</p>';
     h += '</div>';
     body.innerHTML = h;
+
+    if (movements.length >= 3) {
+      body.querySelectorAll('input, select, textarea, button').forEach(function(el) {
+        el.disabled = true;
+        el.style.opacity = '0.5';
+        el.style.cursor = 'not-allowed';
+      });
+      if (tabsEl) { tabsEl.querySelectorAll('button').forEach(function(b){ b.disabled=true; b.style.cursor='not-allowed'; }); }
+    }
   }
 
   window.demoSetTab = function(t, btn) {
