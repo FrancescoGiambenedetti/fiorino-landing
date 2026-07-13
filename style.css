@@ -388,7 +388,6 @@ section h2 {
 .demo-tabs-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-bottom: 1px solid var(--border);
   padding: 0 1rem;
 }
 .demo-tab {
@@ -398,13 +397,12 @@ section h2 {
   padding: 1.25rem 0;
   background: transparent;
   border: none;
-  border-bottom: 2px solid transparent;
+  border-bottom: 1px solid var(--border);
   color: var(--muted);
   cursor: pointer;
   transition: color 0.15s, border-color 0.15s;
-  margin-bottom: -1px;
 }
-.demo-tab-active { color: var(--fg); border-bottom-color: var(--fg); font-weight: 600; }
+.demo-tab-active { color: var(--fg); border-bottom: 2px solid var(--fg); font-weight: 600; }
 
 /* ── Form body ── */
 .df-body { padding: 1.25rem 1rem 1rem; display: flex; flex-direction: column; gap: 0.875rem; }
@@ -432,7 +430,7 @@ section h2 {
 
 /* Date field con icona */
 .df-icon-wrap { position: relative; }
-.df-input-icon { padding-right: 2.75rem; cursor: default; color: var(--muted); }
+.df-input-icon { padding-right: 2.75rem; cursor: default; color: var(--fg); }
 .df-icon-right {
   position: absolute; right: 0.875rem; top: 50%; transform: translateY(-50%);
   color: var(--muted); pointer-events: none; display: flex; align-items: center;
