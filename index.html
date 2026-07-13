@@ -129,100 +129,49 @@
 <section class="demo-section" id="prova">
   <p class="label">Prova dal vivo</p>
   <h2>Inserisci un movimento.<br>Guarda cosa succede.</h2>
-  <p class="section-body" style="margin-bottom:2rem;">Nessuna registrazione. Prova qui come funziona Fiorino.</p>
+  <p class="section-body" style="margin-bottom:2rem;">Nessuna registrazione. Fino a 3 movimenti.</p>
 
   <div class="demo-grid">
 
-    <!-- STEP 1: FORM -->
-    <div class="demo-panel">
-      <div class="demo-tabs-row">
-        <button class="demo-tab" onclick="demoSetType('entrata',this)">Entrata</button>
-        <button class="demo-tab demo-tab-active" onclick="demoSetType('uscita',this)">Uscita</button>
+    <!-- PANEL 1: FORM (stile modale app) -->
+    <div class="demo-panel demo-form-panel">
+      <div class="demo-tabs-row" id="demo-tabs">
+        <button class="demo-tab" onclick="demoSetTab('income',this)">Entrata</button>
+        <button class="demo-tab demo-tab-active" onclick="demoSetTab('expense',this)">Uscita</button>
+        <button class="demo-tab" onclick="demoSetTab('transfer',this)">Giroconto</button>
       </div>
-      <div class="demo-body">
-        <div class="demo-field-wrap">
-          <label class="demo-label">Data</label>
-          <div class="demo-input-static" id="demo-date-display"></div>
-        </div>
-        <div class="demo-field-wrap">
-          <label class="demo-label">Importo (€)</label>
-          <input class="demo-input" id="demo-amount" type="text" inputmode="decimal" placeholder="0,00" oninput="demoUpdate()" autocomplete="off" />
-        </div>
-        <div class="demo-field-wrap">
-          <label class="demo-label">Conto</label>
-          <div class="demo-select-wrap">
-            <select class="demo-select" onchange="demoUpdate()">
-              <option>Conto corrente</option>
-              <option>Prepagata</option>
-              <option>Portafogli</option>
-            </select>
-          </div>
-        </div>
-        <div class="demo-field-wrap" id="demo-cat-wrap">
-          <label class="demo-label">Categoria</label>
-          <div class="demo-select-wrap">
-            <select class="demo-select" id="demo-cat" onchange="demoUpdate()">
-              <option>Spesa</option>
-              <option>Trasporti</option>
-              <option>Ristorante</option>
-              <option>Salute</option>
-              <option>Svago</option>
-              <option>Abbonamenti</option>
-              <option>Altro</option>
-            </select>
-          </div>
-        </div>
-        <div class="demo-field-wrap">
-          <label class="demo-label">Descrizione</label>
-          <input class="demo-input" id="demo-desc" type="text" placeholder="es. Supermercato Conad" oninput="demoUpdate()" autocomplete="off" />
-        </div>
-        <div class="demo-btns">
-          <button class="demo-btn-sec" disabled>Annulla</button>
-          <button class="demo-btn-pri" disabled>Salva</button>
-        </div>
-        <p class="demo-note">Demo — nessun dato viene salvato</p>
-      </div>
+      <div id="demo-form-body"></div>
     </div>
 
-    <!-- ARROW 1 -->
     <div class="demo-arrow">→</div>
 
-    <!-- STEP 2: MOVIMENTO -->
+    <!-- PANEL 2: CALENDARIO -->
     <div class="demo-panel">
-      <div class="demo-storico-header" id="out-tx-date-row"></div>
-      <div class="demo-tx-row">
-        <div class="demo-tx-dot" id="out-tx-dot"></div>
-        <div class="demo-tx-info">
-          <div class="demo-tx-desc" id="out-tx-desc">—</div>
-          <div class="demo-tx-meta">
-            <span class="demo-tx-account">Conto corrente</span>
-            <span class="demo-tx-cat" id="out-tx-cat">Spesa</span>
-          </div>
-        </div>
-        <div class="demo-tx-amount" id="out-tx-amount">—</div>
+      <div class="demo-cal-header">
+        <span id="demo-cal-date-str" class="demo-cal-date-str">—</span>
+        <span id="demo-cal-count">0 transazioni</span>
       </div>
-      <div class="demo-tx-footer">
-        <span id="out-tx-type">Uscite</span>
-        <span class="demo-tx-footer-amount" id="out-tx-footer-amount">—</span>
+      <div id="demo-cal-rows">
+        <p class="demo-cal-empty">Ancora nessun movimento.</p>
       </div>
+      <div id="demo-cal-footer"></div>
     </div>
 
-    <!-- ARROW 2 -->
     <div class="demo-arrow">→</div>
 
-    <!-- STEP 3: HOME -->
+    <!-- PANEL 3: HERO DARK -->
     <div class="demo-panel demo-panel-dark">
       <div class="demo-home-eyebrow" id="out-home-date"></div>
-      <div class="demo-home-saldo" id="out-home-saldo">3.712,31 €</div>
+      <div class="demo-home-saldo" id="out-home-saldo">3.140,18 €</div>
       <div class="demo-home-divider"></div>
       <div class="demo-home-row">
         <div>
           <div class="demo-home-sub">Inizio mese</div>
-          <div class="demo-home-val">3.712,31 €</div>
+          <div class="demo-home-val">3.140,18 €</div>
         </div>
         <div style="text-align:right">
           <div class="demo-home-sub">Fine mese</div>
-          <div class="demo-home-val" id="out-fine-mese">3.712,31 €</div>
+          <div class="demo-home-val" id="out-fine-mese">3.140,18 €</div>
         </div>
       </div>
       <div class="demo-home-divider"></div>
@@ -243,83 +192,175 @@
 
 <script>
 (function() {
-  var INIZIO = 3712.31;
-  var tipo = 'uscita';
+  var INIZIO = 3140.18;
+  var movements = [];
+  var tab = 'expense';
+  var today = new Date();
 
-  function fmt(n) {
-    return n.toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
+  var CONTI = ['Conto corrente', 'Prepagata', 'Portafogli'];
+  var CATS  = ['Spesa', 'Trasporti', 'Ristorante', 'Salute', 'Svago', 'Abbonamenti', 'Altro'];
+  var CAL_SVG = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" style="display:block"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>';
+  var CHV_SVG = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="display:block"><polyline points="6 9 12 15 18 9"/></svg>';
+
+  function fmt(n) { return n.toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €'; }
+  function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+  function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function fmtShort(d) { return d.toLocaleDateString('it-IT'); }
+  function fmtLong(d)  { return cap(d.toLocaleDateString('it-IT', { weekday:'long', day:'numeric', month:'long', year:'numeric' })); }
+  function opts(arr, sel) { return arr.map(function(c){ return '<option'+(c===sel?' selected':'')+'>'+c+'</option>'; }).join(''); }
+
+  function field(label, inner) {
+    return '<div class="df-field"><label class="df-label">'+label+'</label>'+inner+'</div>';
+  }
+  function inputWrap(icon, inner) {
+    return '<div class="df-icon-wrap">'+inner+'<span class="df-icon-right">'+icon+'</span></div>';
+  }
+  function selWrap(inner) {
+    return '<div class="df-sel-wrap">'+inner+'<span class="df-chevron">'+CHV_SVG+'</span></div>';
   }
 
-  function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+  function renderForm() {
+    var body = document.getElementById('demo-form-body');
+    var tabsEl = document.getElementById('demo-tabs');
+    if (!body) return;
 
-  window.demoSetType = function(t, btn) {
-    tipo = t;
-    document.querySelectorAll('.demo-tab').forEach(function(b) { b.classList.remove('demo-tab-active'); });
-    btn.classList.add('demo-tab-active');
-    document.getElementById('demo-cat-wrap').style.display = (t === 'uscita') ? '' : 'none';
-    demoUpdate();
-  };
+    if (movements.length >= 3) {
+      if (tabsEl) tabsEl.style.display = 'none';
+      body.innerHTML = '<div class="demo-max"><p>Hai inserito 3 movimenti.</p><button class="demo-reset-btn" onclick="demoReset()">Ricomincia</button><p class="demo-note">Demo — nessun dato viene salvato</p></div>';
+      return;
+    }
+    if (tabsEl) tabsEl.style.display = '';
 
-  window.demoUpdate = function() {
-    var raw = (document.getElementById('demo-amount').value || '').replace(',', '.');
-    var amount = Math.max(0, parseFloat(raw) || 0);
-    var desc = document.getElementById('demo-desc').value;
-    var cat = document.getElementById('demo-cat').value;
-    var isUscita = tipo === 'uscita';
+    var h = '<div class="df-body">';
+    // Data
+    h += field('Data', inputWrap(CAL_SVG, '<input type="text" class="df-input df-input-icon" value="'+fmtShort(today)+'" readonly />'));
+    // Importo
+    h += field('Importo (€)', '<input id="df-amt" type="text" inputmode="decimal" class="df-input" placeholder="0,00" oninput="demoLimitDec(this)" autocomplete="off" />');
 
-    // dot indicator
-    var dot = document.getElementById('out-tx-dot');
-    dot.style.background = amount > 0 ? (isUscita ? '#ef4444' : '#16a34a') : 'var(--border)';
-
-    // desc
-    document.getElementById('out-tx-desc').textContent = desc || (isUscita ? 'Spesa' : 'Entrata');
-    document.getElementById('out-tx-cat').textContent = cat;
-    document.getElementById('out-tx-type').textContent = isUscita ? 'Uscite' : 'Entrate';
-
-    var amtEl = document.getElementById('out-tx-amount');
-    var footEl = document.getElementById('out-tx-footer-amount');
-    if (amount > 0) {
-      var sign = isUscita ? '-' : '+';
-      amtEl.textContent = sign + fmt(amount);
-      amtEl.style.color = isUscita ? '#ef4444' : '#16a34a';
-      footEl.textContent = sign + fmt(amount);
-      footEl.style.color = isUscita ? '#ef4444' : '#16a34a';
+    if (tab === 'transfer') {
+      h += field('Da', selWrap('<select id="df-from" class="df-select">'+opts(CONTI,'Conto corrente')+'</select>'));
+      h += field('A',  selWrap('<select id="df-to"   class="df-select">'+opts(CONTI,'Prepagata')+'</select>'));
     } else {
-      amtEl.textContent = '—'; amtEl.style.color = '';
-      footEl.textContent = '—'; footEl.style.color = '';
+      h += field('Conto', selWrap('<select id="df-acc" class="df-select">'+opts(CONTI,'Conto corrente')+'</select>'));
+      if (tab === 'expense') {
+        h += field('Categoria', selWrap('<select id="df-cat" class="df-select">'+opts(CATS,'Spesa')+'</select>'));
+      }
+      h += field('Descrizione (opzionale)', '<textarea id="df-desc" class="df-textarea" rows="2" placeholder=""></textarea>');
+      h += '<label class="df-check-row"><input type="checkbox" id="df-rec" /><span>Ricorrenza mensile</span></label>';
     }
 
-    // home panel
-    var fineMese = isUscita ? INIZIO - amount : INIZIO + amount;
-    var saldoEl = document.getElementById('out-home-saldo');
-    saldoEl.textContent = fmt(fineMese);
-    saldoEl.style.color = amount > 0 ? (isUscita ? '#f87171' : '#4ade80') : '';
-    var fmEl = document.getElementById('out-fine-mese');
-    fmEl.textContent = fmt(fineMese);
-    fmEl.style.color = amount > 0 ? (isUscita ? '#f87171' : '#4ade80') : '';
-    document.getElementById('out-entrate').textContent = fmt(isUscita ? 0 : amount);
-    document.getElementById('out-uscite').textContent = fmt(isUscita ? amount : 0);
+    h += '<div class="df-btns"><button class="df-btn-sec" onclick="demoAnnulla()">Annulla</button><button class="df-btn-pri" onclick="demoSave()">Salva</button></div>';
+    var n = movements.length;
+    h += '<p class="demo-note">'+(n > 0 ? n+'/3 movimenti aggiunti · ' : '')+'Demo — nessun dato viene salvato</p>';
+    h += '</div>';
+    body.innerHTML = h;
+  }
+
+  window.demoSetTab = function(t, btn) {
+    tab = t;
+    document.querySelectorAll('.demo-tab').forEach(function(b){ b.classList.remove('demo-tab-active'); });
+    btn.classList.add('demo-tab-active');
+    renderForm();
   };
 
-  // limit input to 2 decimal places
-  document.addEventListener('DOMContentLoaded', function() {
-    var inp = document.getElementById('demo-amount');
-    inp.addEventListener('input', function() {
-      var v = inp.value.replace(/[^0-9.,]/g, '');
-      var sep = v.indexOf(',') !== -1 ? ',' : v.indexOf('.') !== -1 ? '.' : null;
-      if (sep) {
-        var parts = v.split(sep);
-        v = parts[0] + sep + parts[1].slice(0, 2);
-      }
-      if (inp.value !== v) inp.value = v;
-    });
+  window.demoLimitDec = function(el) {
+    var v = el.value.replace(/[^0-9.,]/g,'');
+    var sep = v.indexOf(',')!==-1 ? ',' : v.indexOf('.')!==-1 ? '.' : null;
+    if (sep) { var p=v.split(sep); v=p[0]+sep+(p[1]||'').slice(0,2); }
+    if (el.value !== v) el.value = v;
+  };
 
-    var today = new Date();
-    var shortDate = today.toLocaleDateString('it-IT');
-    var longDate = today.toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
-    document.getElementById('demo-date-display').textContent = shortDate;
-    document.getElementById('out-tx-date-row').textContent = cap(longDate) + ' · 1 transazione';
-    document.getElementById('out-home-date').textContent = 'Saldo ad oggi: ' + cap(longDate);
+  window.demoAnnulla = function() { renderForm(); };
+
+  window.demoSave = function() {
+    if (movements.length >= 3) return;
+    var amtEl = document.getElementById('df-amt');
+    if (!amtEl) return;
+    var amt = parseFloat((amtEl.value||'').replace(',','.')) || 0;
+    if (amt <= 0) { amtEl.style.outline='2px solid #ef4444'; amtEl.focus(); return; }
+    var desc = (document.getElementById('df-desc')||{value:''}).value || '';
+    var acc  = tab==='transfer' ? null : (document.getElementById('df-acc')||{value:'Conto corrente'}).value;
+    var from = tab==='transfer' ? (document.getElementById('df-from')||{value:'Conto corrente'}).value : null;
+    var to   = tab==='transfer' ? (document.getElementById('df-to')||{value:'Prepagata'}).value : null;
+    var cat  = tab==='expense'  ? (document.getElementById('df-cat')||{value:'Spesa'}).value : null;
+    movements.push({ type:tab, amt:amt, desc:desc, acc:acc, from:from, to:to, cat:cat });
+    updateCalendar();
+    updateHero();
+    renderForm();
+  };
+
+  window.demoReset = function() {
+    movements = [];
+    tab = 'expense';
+    var tabs = document.querySelectorAll('.demo-tab');
+    tabs.forEach(function(b,i){ b.classList.toggle('demo-tab-active', i===1); });
+    renderForm();
+    updateCalendar();
+    updateHero();
+  };
+
+  function updateCalendar() {
+    var n = movements.length;
+    var dateEl = document.getElementById('demo-cal-date-str');
+    var countEl = document.getElementById('demo-cal-count');
+    var rowsEl = document.getElementById('demo-cal-rows');
+    var footEl = document.getElementById('demo-cal-footer');
+    if (dateEl) dateEl.textContent = fmtLong(today);
+    if (countEl) countEl.textContent = n + ' ' + (n===1?'transazione':'transazioni');
+    if (!rowsEl) return;
+    if (n === 0) {
+      rowsEl.innerHTML = '<p class="demo-cal-empty">Ancora nessun movimento.</p>';
+      if (footEl) footEl.innerHTML = '';
+      return;
+    }
+    var rows = '';
+    movements.forEach(function(m) {
+      var isInc = m.type==='income', isTr = m.type==='transfer';
+      var amtCls = isTr ? '' : (isInc ? 'demo-green' : 'demo-red');
+      var sign   = isTr ? '' : (isInc ? '+' : '−');
+      var label  = m.desc || (isInc ? 'Entrata' : isTr ? 'Giroconto' : m.cat||'Spesa');
+      rows += '<div class="demo-cal-row">';
+      rows += '<div class="demo-cal-info"><p class="demo-cal-desc">'+esc(label)+'</p>';
+      rows += '<div class="demo-cal-meta">';
+      if (isTr) {
+        rows += '<span class="demo-cal-acc">'+esc(m.from)+'</span><span class="demo-cal-sep">→</span><span class="demo-cal-acc">'+esc(m.to)+'</span>';
+      } else {
+        rows += '<span class="demo-cal-acc">'+esc(m.acc)+'</span>';
+        if (m.cat) rows += '<span class="demo-cal-cat">'+esc(m.cat)+'</span>';
+      }
+      rows += '</div></div>';
+      rows += '<p class="demo-cal-amt '+amtCls+'">'+sign+fmt(m.amt)+'</p>';
+      rows += '</div>';
+    });
+    rowsEl.innerHTML = rows;
+    if (footEl) {
+      var totInc = movements.filter(function(m){return m.type==='income';}).reduce(function(s,m){return s+m.amt;},0);
+      var totExp = movements.filter(function(m){return m.type==='expense';}).reduce(function(s,m){return s+m.amt;},0);
+      var fh = '';
+      if (totInc > 0) fh += '<div class="demo-cal-foot-row"><span>Entrate</span><span class="demo-green">+'+fmt(totInc)+'</span></div>';
+      if (totExp > 0) fh += '<div class="demo-cal-foot-row"><span>Uscite</span><span class="demo-red">−'+fmt(totExp)+'</span></div>';
+      footEl.innerHTML = fh;
+    }
+  }
+
+  function updateHero() {
+    var totInc = movements.filter(function(m){return m.type==='income';}).reduce(function(s,m){return s+m.amt;},0);
+    var totExp = movements.filter(function(m){return m.type==='expense';}).reduce(function(s,m){return s+m.amt;},0);
+    var bal = INIZIO + totInc - totExp;
+    var sEl = document.getElementById('out-home-saldo');
+    if (sEl) { sEl.textContent = fmt(bal); sEl.style.color = movements.length>0 ? (bal<INIZIO?'#f87171':bal>INIZIO?'#4ade80':'') : ''; }
+    var fEl = document.getElementById('out-fine-mese');
+    if (fEl) { fEl.textContent = fmt(bal); fEl.style.color = sEl ? sEl.style.color : ''; }
+    var eEl = document.getElementById('out-entrate'); if (eEl) eEl.textContent = fmt(totInc);
+    var uEl = document.getElementById('out-uscite');  if (uEl) uEl.textContent = fmt(totExp);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    renderForm();
+    var hd = document.getElementById('out-home-date');
+    if (hd) hd.textContent = 'Saldo ad oggi: ' + fmtLong(today);
+    var cd = document.getElementById('demo-cal-date-str');
+    if (cd) cd.textContent = fmtLong(today);
   });
 })();
 </script>
