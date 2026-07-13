@@ -260,8 +260,7 @@
     h += field('Descrizione (opzionale)', '<textarea id="df-desc" class="df-textarea" rows="2" placeholder=""></textarea>');
 
     h += '<div class="df-btns"><button class="df-btn-sec" onclick="demoAnnulla()">Annulla</button><button class="df-btn-pri" onclick="demoSave()">Salva</button></div>';
-    var n = movements.length;
-    h += '<p class="demo-note">'+(n > 0 ? n+'/3 movimenti aggiunti · ' : '')+'Demo: nessun dato viene salvato</p>';
+    h += '<p class="demo-note">Demo: nessun dato viene salvato</p>';
     h += '</div>';
     body.innerHTML = h;
   }
