@@ -11,6 +11,7 @@
   --green: #16a34a;
   --green-bg: #f0faf4;
   --radius: 0.75rem;
+  --color-red-500: #ef4444;
 }
 
 html { font-size: 16px; scroll-behavior: smooth; }
@@ -438,7 +439,7 @@ section h2 {
 }
 .df-input::placeholder, .df-textarea::placeholder { color: #a1a1aa; }
 .df-textarea { resize: none; min-height: 4.5rem; }
-.df-err { font-size: 0.875rem; color: #ef4444; }
+.df-err { font-size: 0.875rem; color: var(--color-red-500); }
 
 /* Date field con icona */
 .df-icon-wrap { position: relative; }
@@ -507,7 +508,7 @@ section h2 {
   color: var(--muted); flex-shrink: 0; display: flex; align-items: center;
   transition: color 0.15s;
 }
-.demo-cal-del:hover { color: #ef4444; }
+.demo-cal-del:hover { color: var(--color-red-500); }
 .demo-cal-info { flex: 1; min-width: 0; }
 .demo-cal-desc {
   font-size: 14px; font-weight: 500; color: var(--fg);
@@ -539,7 +540,7 @@ section h2 {
 .demo-home-val { font-size: 20px; font-weight: 700; transition: color 0.2s; }
 
 .demo-green { color: #059669 !important; }
-.demo-red   { color: #ef4444 !important; }
+.demo-red   { color: var(--color-red-500) !important; }
 
 @media (min-width: 760px) {
   .demo-grid { flex-direction: row; align-items: flex-start; gap: 1rem; }
