@@ -788,7 +788,30 @@ footer {
 .s-hero {
   background: #0a1a10;
   border-bottom: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-text-col {
+  background: #0a1a10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-text-inner {
   padding: 4rem 1.25rem 3.5rem;
+}
+
+.hero-img-col { overflow: hidden; }
+
+.hero-img-col img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: 70% center;
+  display: block;
 }
 
 .s-hero .eyebrow-tag { color: #4ade80; }
@@ -920,12 +943,36 @@ footer {
 
 /* ── EMOZIONE ───────────────────────────── */
 .s-emo {
-  background: #f4e0a0;
+  background: transparent;
   border-top: none;
   border-bottom: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
-.s-emo .eyebrow-tag { color: #a06010; }
+.emo-img-col { overflow: hidden; }
+
+.emo-img-col img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+
+.emo-text-col {
+  background: #f4e0a0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.emo-text-inner {
+  padding: 3.5rem 1.25rem;
+}
+
+.emo-text-col .eyebrow-tag { color: #a06010; }
 
 .emo-quote {
   font-family: Georgia, 'Times New Roman', serif;
@@ -1048,7 +1095,22 @@ footer {
 }
 
 /* ── CTA FINALE ─────────────────────────── */
-.s-final { border-bottom: none; padding: 4.5rem 1.25rem; }
+.s-final { border-bottom: none; padding: 0; overflow: hidden; }
+
+.s-final-img-wrap { line-height: 0; }
+
+.s-final-img-wrap img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.s-final-text-overlay {
+  padding: 3.5rem 1.25rem 4rem;
+  background: var(--bg);
+}
 
 .final-h2 {
   font-family: Georgia, 'Times New Roman', serif;
@@ -1083,14 +1145,43 @@ footer {
 
 /* ── RESPONSIVE ─────────────────────────── */
 @media (min-width: 640px) {
-  .s-hero    { padding: 6.5rem 2rem 5.5rem; }
   .s-diff    { padding: 4.5rem 2rem; }
-  .s-emo     { padding: 5.5rem 2rem; }
   .s-feat    { padding: 4.5rem 2rem; }
   .s-pricing { padding: 6.5rem 2rem; }
-  .s-final   { padding: 6rem 2rem; }
 
   .diff-duo { flex-direction: row; }
   .diff-card { flex: 1; border-bottom: none; border-right: 1px solid var(--border); }
   .diff-card:last-child { border-right: none; }
+}
+
+@media (min-width: 760px) {
+  /* Hero split */
+  .s-hero { flex-direction: row; min-height: 540px; }
+  .hero-text-col { flex: 0 0 52%; }
+  .hero-text-inner { padding: 5.5rem 3rem 5.5rem 2.5rem; max-width: 500px; margin-left: auto; }
+  .hero-img-col { flex: 0 0 48%; }
+  .hero-img-col img { width: 100%; height: 100%; aspect-ratio: unset; object-fit: cover; object-position: 70% center; }
+
+  /* Emozione split */
+  .s-emo { flex-direction: row; min-height: 520px; }
+  .emo-img-col { flex: 0 0 48%; }
+  .emo-img-col img { width: 100%; height: 100%; aspect-ratio: unset; object-fit: cover; object-position: center 30%; }
+  .emo-text-col { flex: 0 0 52%; }
+  .emo-text-inner { padding: 5rem 3rem 5rem 2.5rem; max-width: 520px; }
+
+  /* CTA finale split */
+  .s-final { position: relative; min-height: 500px; }
+  .s-final-img-wrap { position: absolute; inset: 0; }
+  .s-final-img-wrap img { width: 100%; height: 100%; aspect-ratio: unset; object-fit: cover; object-position: center; }
+  .s-final-text-overlay {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 500px;
+    max-width: 48%;
+    padding: 5rem 3rem 5rem 2.5rem;
+    background: linear-gradient(to right, var(--bg) 0%, var(--bg) 72%, transparent 100%);
+  }
 }
