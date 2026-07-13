@@ -515,7 +515,7 @@ section h2 {
 
 .demo-cal-foot-row {
   display: flex; align-items: flex-start; gap: 1.5rem;
-  padding: 0.625rem 1rem; background: #ededed;
+  padding: 0.625rem 1rem; background: #f9f9f9;
 }
 .demo-cal-foot-col { display: flex; flex-direction: column; gap: 0.125rem; }
 .demo-cal-foot-label { font-size: 10px; color: var(--muted); font-weight: 400; }
