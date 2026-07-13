@@ -371,8 +371,18 @@ section h2 {
 /* ── DEMO SECTION ── */
 .demo-section { background: var(--bg); }
 
-.demo-grid { display: flex; flex-direction: column; gap: 0.75rem; }
+.demo-grid { display: flex; flex-direction: column; gap: 0.75rem; margin: 0 auto; width: fit-content; max-width: 100%; }
 .demo-col2 { display: flex; flex-direction: column; gap: 0.75rem; width: 100%; max-width: 384px; }
+
+/* Frecce SVG */
+.demo-arrow-svg {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+.demo-arrow-down { display: flex; }
 
 /* Panels */
 .demo-panel {
@@ -524,8 +534,10 @@ section h2 {
 .demo-red   { color: #f87171 !important; }
 
 @media (min-width: 760px) {
-  .demo-grid { flex-direction: row; align-items: stretch; gap: 1.5rem; }
-  .demo-col2 { gap: 1.5rem; }
+  .demo-grid { flex-direction: row; align-items: center; gap: 1rem; }
+  .demo-col2 { gap: 1rem; }
+  .demo-arrow-svg { display: flex; }
+  .demo-arrow-down { display: flex; }
 }
 
 /* MID CTA */
