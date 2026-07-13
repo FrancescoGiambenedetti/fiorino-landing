@@ -138,7 +138,6 @@
       <div class="demo-tabs-row" id="demo-tabs">
         <button class="demo-tab" onclick="demoSetTab('income',this)">Entrata</button>
         <button class="demo-tab demo-tab-active" onclick="demoSetTab('expense',this)">Uscita</button>
-        <button class="demo-tab" onclick="demoSetTab('transfer',this)">Giroconto</button>
       </div>
       <div id="demo-form-body"></div>
     </div>
@@ -237,17 +236,11 @@
     // Importo
     h += field('Importo (€)', '<input id="df-amt" type="text" inputmode="decimal" class="df-input" placeholder="0,00" oninput="demoLimitDec(this)" autocomplete="off" />');
 
-    if (tab === 'transfer') {
-      h += field('Da', selWrap('<select id="df-from" class="df-select">'+opts(CONTI,'Conto corrente')+'</select>'));
-      h += field('A',  selWrap('<select id="df-to"   class="df-select">'+opts(CONTI,'Prepagata')+'</select>'));
-    } else {
-      h += field('Conto', selWrap('<select id="df-acc" class="df-select">'+opts(CONTI,'Conto corrente')+'</select>'));
-      if (tab === 'expense') {
-        h += field('Categoria', selWrap('<select id="df-cat" class="df-select">'+opts(CATS,'Spesa')+'</select>'));
-      }
-      h += field('Descrizione (opzionale)', '<textarea id="df-desc" class="df-textarea" rows="2" placeholder=""></textarea>');
-      h += '<label class="df-check-row"><input type="checkbox" id="df-rec" /><span>Ricorrenza mensile</span></label>';
+    h += field('Conto', selWrap('<select id="df-acc" class="df-select">'+opts(CONTI,'Conto corrente')+'</select>'));
+    if (tab === 'expense') {
+      h += field('Categoria', selWrap('<select id="df-cat" class="df-select">'+opts(CATS,'Spesa')+'</select>'));
     }
+    h += field('Descrizione (opzionale)', '<textarea id="df-desc" class="df-textarea" rows="2" placeholder=""></textarea>');
 
     h += '<div class="df-btns"><button class="df-btn-sec" onclick="demoAnnulla()">Annulla</button><button class="df-btn-pri" onclick="demoSave()">Salva</button></div>';
     var n = movements.length;
@@ -279,11 +272,9 @@
     var amt = parseFloat((amtEl.value||'').replace(',','.')) || 0;
     if (amt <= 0) { amtEl.style.outline='2px solid #ef4444'; amtEl.focus(); return; }
     var desc = (document.getElementById('df-desc')||{value:''}).value || '';
-    var acc  = tab==='transfer' ? null : (document.getElementById('df-acc')||{value:'Conto corrente'}).value;
-    var from = tab==='transfer' ? (document.getElementById('df-from')||{value:'Conto corrente'}).value : null;
-    var to   = tab==='transfer' ? (document.getElementById('df-to')||{value:'Prepagata'}).value : null;
-    var cat  = tab==='expense'  ? (document.getElementById('df-cat')||{value:'Spesa'}).value : null;
-    movements.push({ type:tab, amt:amt, desc:desc, acc:acc, from:from, to:to, cat:cat });
+    var acc = (document.getElementById('df-acc')||{value:'Conto corrente'}).value;
+    var cat = tab==='expense' ? (document.getElementById('df-cat')||{value:'Spesa'}).value : null;
+    movements.push({ type:tab, amt:amt, desc:desc, acc:acc, cat:cat });
     updateCalendar();
     updateHero();
     renderForm();
@@ -315,19 +306,15 @@
     }
     var rows = '';
     movements.forEach(function(m) {
-      var isInc = m.type==='income', isTr = m.type==='transfer';
-      var amtCls = isTr ? '' : (isInc ? 'demo-green' : 'demo-red');
-      var sign   = isTr ? '' : (isInc ? '+' : '−');
-      var label  = m.desc || (isInc ? 'Entrata' : isTr ? 'Giroconto' : m.cat||'Spesa');
+      var isInc = m.type==='income';
+      var amtCls = isInc ? 'demo-green' : 'demo-red';
+      var sign   = isInc ? '+' : '−';
+      var label  = m.desc || (isInc ? 'Entrata' : m.cat||'Spesa');
       rows += '<div class="demo-cal-row">';
       rows += '<div class="demo-cal-info"><p class="demo-cal-desc">'+esc(label)+'</p>';
       rows += '<div class="demo-cal-meta">';
-      if (isTr) {
-        rows += '<span class="demo-cal-acc">'+esc(m.from)+'</span><span class="demo-cal-sep">→</span><span class="demo-cal-acc">'+esc(m.to)+'</span>';
-      } else {
-        rows += '<span class="demo-cal-acc">'+esc(m.acc)+'</span>';
-        if (m.cat) rows += '<span class="demo-cal-cat">'+esc(m.cat)+'</span>';
-      }
+      rows += '<span class="demo-cal-acc">'+esc(m.acc)+'</span>';
+      if (m.cat) rows += '<span class="demo-cal-cat">'+esc(m.cat)+'</span>';
       rows += '</div></div>';
       rows += '<p class="demo-cal-amt '+amtCls+'">'+sign+fmt(m.amt)+'</p>';
       rows += '</div>';
