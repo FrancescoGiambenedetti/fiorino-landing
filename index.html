@@ -373,6 +373,16 @@
     var cd = document.getElementById('demo-cal-date-str');
     if (cd) cd.textContent = fmtLong(today);
   });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+      var formBody = document.getElementById('demo-form-body');
+      if (formBody && formBody.contains(document.activeElement)) {
+        e.preventDefault();
+        demoSave();
+      }
+    }
+  });
 })();
 </script>
 
