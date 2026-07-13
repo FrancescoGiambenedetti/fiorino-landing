@@ -492,34 +492,34 @@ section h2 {
 /* ── Panel 2: Calendar ── */
 .demo-cal-header {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 1rem; border-bottom: 1px solid var(--border);
+  padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);
 }
-.demo-cal-date-str { font-size: 0.9375rem; font-weight: 700; flex: 1; min-width: 0; }
-#demo-cal-count { font-size: 0.9375rem; font-weight: 700; flex-shrink: 0; }
-.demo-cal-empty { padding: 1.5rem 1rem; font-size: 0.875rem; color: var(--muted); text-align: center; }
+.demo-cal-date-str { font-size: 14px; font-weight: 700; flex: 1; min-width: 0; }
+#demo-cal-count { font-size: 14px; font-weight: 700; flex-shrink: 0; }
+.demo-cal-empty { padding: 1.5rem 1rem; font-size: 14px; color: var(--muted); text-align: center; }
 
 .demo-cal-row {
   display: flex; align-items: flex-start; gap: 0.75rem;
-  padding: 0.875rem 1rem; border-bottom: 1px solid var(--border);
+  padding: 0.625rem 1rem; border-bottom: 1px solid var(--border);
 }
 .demo-cal-info { flex: 1; min-width: 0; }
 .demo-cal-desc {
-  font-size: 0.9375rem; font-weight: 600; color: var(--fg);
-  margin-bottom: 0.25rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  font-size: 14px; font-weight: 500; color: var(--fg);
+  margin-bottom: 0.125rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-.demo-cal-meta { display: flex; align-items: center; gap: 0.375rem; font-size: 0.75rem; flex-wrap: wrap; }
+.demo-cal-meta { display: flex; align-items: center; gap: 0.375rem; font-size: 10px; flex-wrap: wrap; margin-top: 1px; }
 .demo-cal-acc { color: #3b82f6; font-weight: 500; }
 .demo-cal-sep { color: var(--muted); }
 .demo-cal-cat { color: var(--muted); }
-.demo-cal-amt { font-size: 0.9375rem; font-weight: 600; flex-shrink: 0; color: var(--muted); }
+.demo-cal-amt { font-size: 14px; font-weight: 600; flex-shrink: 0; color: var(--muted); }
 
 .demo-cal-foot-row {
   display: flex; align-items: flex-start; gap: 1.5rem;
-  padding: 0.75rem 1rem; background: #f4f4f4;
+  padding: 0.625rem 1rem; background: #ededed;
 }
-.demo-cal-foot-col { display: flex; flex-direction: column; gap: 0.2rem; }
-.demo-cal-foot-label { font-size: 0.75rem; color: var(--muted); font-weight: 400; }
-.demo-cal-foot-val { font-size: 0.9375rem; font-weight: 700; }
+.demo-cal-foot-col { display: flex; flex-direction: column; gap: 0.125rem; }
+.demo-cal-foot-label { font-size: 10px; color: var(--muted); font-weight: 400; }
+.demo-cal-foot-val { font-size: 14px; font-weight: 700; }
 
 /* ── Panel 3: Hero dark ── */
 .demo-home-eyebrow { font-size: 14px; color: #ffffff; padding: 1.25rem 1.25rem 0.25rem; }
