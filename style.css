@@ -382,7 +382,7 @@ section h2 {
   overflow: hidden;
   flex: 1;
 }
-.demo-form-panel { max-width: 448px; width: 100%; }
+.demo-form-panel { max-width: 384px; width: 100%; }
 .demo-panel-dark { background: var(--fg); border-color: var(--fg); color: var(--bg); }
 
 /* ── Tabs (Entrata / Uscita) ── */
