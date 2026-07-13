@@ -767,11 +767,18 @@ footer {
    NUOVE SEZIONI LANDING
 ═══════════════════════════════════════════ */
 
+/* Inner wrapper — centra e limita la larghezza su desktop */
+.s-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
 /* Eyebrow condiviso */
 .eyebrow-tag {
   display: block;
-  font-family: monospace;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.6875rem;
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 1rem;
@@ -786,21 +793,24 @@ footer {
 
 .s-hero .eyebrow-tag { color: #4ade80; }
 
+.hero-accent { color: #b8f768; }
+
 .hero-h1 {
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: clamp(2.75rem, 11vw, 5.5rem);
-  font-weight: 700;
+  font-weight: normal;
   line-height: 1.0;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.02em;
   color: #ffffff;
   margin-bottom: 1.5rem;
   text-wrap: balance;
 }
 
 .hero-body {
-  font-size: 1.0625rem;
+  font-size: 1.125rem;
   color: #7a9e88;
-  line-height: 1.65;
-  max-width: 28rem;
+  line-height: 1.7;
+  max-width: 32rem;
   margin-bottom: 2rem;
 }
 
@@ -811,14 +821,12 @@ footer {
   gap: 0.875rem;
 }
 
-.hero-accent { color: #b8f768; }
-
 .btn-hero {
   display: inline-flex;
   align-items: center;
   background: #b8f768;
   color: #0a1a10;
-  font-family: inherit;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 1rem;
   font-weight: 700;
   padding: 0.9rem 1.875rem;
@@ -827,74 +835,68 @@ footer {
 }
 
 .hero-note {
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   color: #4a6a52;
   line-height: 1.55;
-  max-width: 24rem;
+  max-width: 26rem;
 }
 
 /* ── DIFF ───────────────────────────────── */
-.s-diff {
-  background: var(--bg);
-}
+.s-diff { background: var(--bg); }
+.s-diff .eyebrow-tag { color: var(--muted); }
 
 .s-h2 {
-  font-size: clamp(1.625rem, 4vw, 2.375rem);
-  font-weight: 700;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.75rem, 4vw, 2.625rem);
+  font-weight: normal;
   line-height: 1.15;
-  letter-spacing: -0.025em;
-  margin-bottom: 0.875rem;
+  letter-spacing: -0.015em;
+  margin-bottom: 1rem;
   text-wrap: balance;
 }
 
 .s-intro {
-  font-size: 1rem;
+  font-size: 1.125rem;
   color: var(--muted);
-  line-height: 1.65;
+  line-height: 1.7;
   margin-bottom: 2rem;
-  max-width: 30rem;
+  max-width: 34rem;
 }
 
-.s-diff .eyebrow-tag { color: var(--muted); }
-
 .diff-featured {
-  border-left: none;
   padding: 1.5rem;
   margin-bottom: 1px;
   background: #0a1a10;
 }
 
 .diff-featured-micro {
-  font-family: monospace;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.625rem;
-  letter-spacing: 0.08em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #b8f768;
   margin-bottom: 0.5rem;
 }
 
 .diff-featured-title {
-  font-size: 1.1875rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.015em;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.375rem;
+  font-weight: normal;
+  margin-bottom: 0.625rem;
   color: #ffffff;
 }
 
 .diff-featured-body {
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   color: #7a9e88;
-  line-height: 1.6;
-  max-width: 32rem;
+  line-height: 1.65;
 }
 
-.diff-duo {
-  display: flex;
-  flex-direction: column;
-}
+.diff-duo { display: flex; flex-direction: column; }
 
 .diff-card {
-  padding: 1.125rem 1.25rem;
+  padding: 1.25rem 1.25rem;
   border-left: 4px solid;
   border-bottom: 1px solid var(--border);
 }
@@ -904,15 +906,16 @@ footer {
 .diff-card-muted { border-left-color: #e85d3a; background: #fff7f5; }
 
 .diff-card-title {
-  font-size: 1rem;
-  font-weight: 700;
-  margin-bottom: 0.375rem;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.0625rem;
+  font-weight: normal;
+  margin-bottom: 0.5rem;
 }
 
 .diff-card-body {
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   color: var(--muted);
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 /* ── EMOZIONE ───────────────────────────── */
@@ -937,10 +940,10 @@ footer {
 }
 
 .emo-body {
-  font-size: 1rem;
+  font-size: 1.125rem;
   color: #5a4010;
   line-height: 1.7;
-  max-width: 34rem;
+  max-width: 36rem;
   margin-bottom: 2.5rem;
 }
 
@@ -951,48 +954,40 @@ footer {
   gap: 0.75rem;
 }
 
-.ew { font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
+.ew { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
 .ew-1 { font-size: 1.25rem;  color: #1e6fb8; }
 .ew-2 { font-size: 1.75rem;  color: #e85d3a; }
 .ew-3 { font-size: 2.375rem; color: #0a6630; }
 .ew-4 { font-size: 3.25rem;  color: #c97a00; }
-.ew-5 { font-size: 4.25rem;  color: #1a0e00; font-style: italic; font-family: Georgia, serif; }
 
 /* ── FUNZIONALITÀ ───────────────────────── */
-.s-feat {
-  background: #f0f4ff;
-}
+.s-feat { background: #f0f4ff; }
+.s-feat .eyebrow-tag { color: #2a4aa0; }
 
-.s-feat .eyebrow-tag { color: var(--muted); }
-
-.feat-list {
-  display: flex;
-  flex-direction: column;
-  margin-top: 0.5rem;
-}
+.feat-list { display: flex; flex-direction: column; margin-top: 0.5rem; }
 
 .feat-row {
   display: flex;
-  gap: 1rem;
+  gap: 1.25rem;
   align-items: flex-start;
-  padding: 0.875rem 0;
-  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
+  border-bottom: 1px solid #d8dff5;
 }
 
 .feat-row:last-child { border-bottom: none; }
 
 .feat-name {
   font-weight: 600;
-  font-size: 0.9375rem;
+  font-size: 1rem;
   min-width: 8.5rem;
   flex-shrink: 0;
   color: var(--fg);
 }
 
 .feat-desc {
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   color: var(--muted);
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .feat-soon {
@@ -1021,20 +1016,21 @@ footer {
 .s-pricing .eyebrow-tag { color: #4ade80; }
 
 .pricing-h2 {
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: clamp(2.375rem, 9vw, 5rem);
-  font-weight: 700;
+  font-weight: normal;
   line-height: 1.0;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em;
   color: #ffffff;
   margin-bottom: 1.5rem;
   text-wrap: balance;
 }
 
 .pricing-body {
-  font-size: 1rem;
+  font-size: 1.125rem;
   color: #6a6a62;
-  line-height: 1.65;
-  max-width: 28rem;
+  line-height: 1.7;
+  max-width: 32rem;
   margin-bottom: 2.25rem;
 }
 
@@ -1043,7 +1039,7 @@ footer {
   align-items: center;
   background: #ffffff;
   color: #0d0d0d;
-  font-family: inherit;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 1rem;
   font-weight: 700;
   padding: 0.9rem 1.875rem;
@@ -1052,26 +1048,24 @@ footer {
 }
 
 /* ── CTA FINALE ─────────────────────────── */
-.s-final {
-  border-bottom: none;
-  padding: 4.5rem 1.25rem;
-}
+.s-final { border-bottom: none; padding: 4.5rem 1.25rem; }
 
 .final-h2 {
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: clamp(2.75rem, 12vw, 6rem);
-  font-weight: 700;
+  font-weight: normal;
   line-height: 1.0;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em;
   margin-bottom: 1rem;
   text-wrap: balance;
 }
 
 .final-body {
-  font-size: 1rem;
+  font-size: 1.125rem;
   color: var(--muted);
   margin-bottom: 2rem;
-  max-width: 22rem;
-  line-height: 1.55;
+  max-width: 26rem;
+  line-height: 1.6;
 }
 
 .btn-dark {
@@ -1079,7 +1073,7 @@ footer {
   align-items: center;
   background: var(--fg);
   color: var(--bg);
-  font-family: inherit;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 1rem;
   font-weight: 700;
   padding: 0.9rem 1.875rem;
