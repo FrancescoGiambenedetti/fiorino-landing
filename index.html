@@ -234,7 +234,7 @@
     // Data
     h += field('Data', inputWrap(CAL_SVG, '<input type="text" class="df-input df-input-icon" value="'+fmtShort(today)+'" readonly />'));
     // Importo
-    h += field('Importo (€)', '<input id="df-amt" type="text" inputmode="decimal" class="df-input" placeholder="" oninput="demoLimitDec(this)" autocomplete="off" />');
+    h += '<div class="df-field"><label class="df-label">Importo (€)</label><input id="df-amt" type="text" inputmode="decimal" class="df-input" placeholder="" oninput="demoLimitDec(this);var e=document.getElementById('df-amt-err');if(e)e.style.display='none';" autocomplete="off" /><span id="df-amt-err" class="df-err" style="display:none">Campo obbligatorio</span></div>';
 
     h += field('Conto', selWrap('<select id="df-acc" class="df-select">'+opts(CONTI,'Conto corrente')+'</select>'));
     if (tab === 'expense') {
@@ -270,7 +270,12 @@
     var amtEl = document.getElementById('df-amt');
     if (!amtEl) return;
     var amt = parseFloat((amtEl.value||'').replace(',','.')) || 0;
-    if (amt <= 0) { amtEl.style.outline='2px solid #ef4444'; amtEl.focus(); return; }
+    if (amt <= 0) {
+      var errEl = document.getElementById('df-amt-err');
+      if (errEl) errEl.style.display = '';
+      amtEl.focus();
+      return;
+    }
     var desc = (document.getElementById('df-desc')||{value:''}).value || '';
     var acc = (document.getElementById('df-acc')||{value:'Conto corrente'}).value;
     var cat = tab==='expense' ? (document.getElementById('df-cat')||{value:'Spesa'}).value : null;

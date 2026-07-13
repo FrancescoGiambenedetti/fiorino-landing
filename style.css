@@ -428,6 +428,7 @@ section h2 {
 }
 .df-input::placeholder, .df-textarea::placeholder { color: #a1a1aa; }
 .df-textarea { resize: none; min-height: 4.5rem; }
+.df-err { font-size: 0.875rem; color: #ef4444; }
 
 /* Date field con icona */
 .df-icon-wrap { position: relative; }
