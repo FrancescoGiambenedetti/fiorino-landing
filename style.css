@@ -389,6 +389,7 @@ section h2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   border-bottom: 1px solid var(--border);
+  padding: 0 1rem;
 }
 .demo-tab {
   font-family: inherit;
