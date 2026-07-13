@@ -418,7 +418,7 @@ section h2 {
   display: block;
   width: 100%;
   box-sizing: border-box;
-  background: #f4f4f5;
+  background: #ebebeb;
   border: none;
   outline: none;
   font-family: inherit;
@@ -452,7 +452,7 @@ section h2 {
 /* Checkbox row */
 .df-check-row {
   display: flex; align-items: center; gap: 0.75rem;
-  background: #f4f4f5; border-radius: 0; padding: 0.875rem 1rem;
+  background: #ebebeb; border-radius: 0; padding: 0.875rem 1rem;
   cursor: pointer; font-size: 1rem;
 }
 .df-check-row input[type="checkbox"] {
@@ -466,7 +466,7 @@ section h2 {
   font-family: inherit; font-size: 1rem; font-weight: 700;
   height: 3.25rem; border: none; border-radius: 0; cursor: pointer;
 }
-.df-btn-sec { background: #f4f4f5; color: var(--fg); }
+.df-btn-sec { background: #ebebeb; color: var(--fg); }
 .df-btn-pri { background: var(--fg); color: #fff; }
 
 /* Note e max */
