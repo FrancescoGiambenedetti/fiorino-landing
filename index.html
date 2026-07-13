@@ -250,11 +250,11 @@
 
     if (movements.length >= 3) {
       body.querySelectorAll('input, select, textarea, button').forEach(function(el) {
-        el.disabled = true;
-        el.style.opacity = '0.5';
-        el.style.cursor = 'not-allowed';
+        el.disabled = true; el.style.opacity = '0.5'; el.style.cursor = 'not-allowed';
       });
-      if (tabsEl) { tabsEl.querySelectorAll('button').forEach(function(b){ b.disabled=true; b.style.cursor='not-allowed'; }); }
+      if (tabsEl) tabsEl.querySelectorAll('button').forEach(function(b){ b.disabled=true; b.style.opacity='0.5'; b.style.cursor='not-allowed'; });
+    } else {
+      if (tabsEl) tabsEl.querySelectorAll('button').forEach(function(b){ b.disabled=false; b.style.opacity=''; b.style.cursor=''; });
     }
   }
 
