@@ -133,7 +133,7 @@
 
   <div class="demo-grid">
 
-    <!-- PANEL 1: FORM (stile modale app) -->
+    <!-- COLONNA 1: FORM -->
     <div class="demo-panel demo-form-panel">
       <div class="demo-tabs-row" id="demo-tabs">
         <button class="demo-tab" onclick="demoSetTab('income',this)">Entrata</button>
@@ -142,48 +142,49 @@
       <div id="demo-form-body"></div>
     </div>
 
-    <div class="demo-arrow">→</div>
+    <!-- COLONNA 2: CALENDARIO + HERO -->
+    <div class="demo-col2">
 
-    <!-- PANEL 2: CALENDARIO -->
-    <div class="demo-panel">
-      <div class="demo-cal-header">
-        <span id="demo-cal-date-str" class="demo-cal-date-str">—</span>
-        <span id="demo-cal-count">0 transazioni</span>
+      <!-- PANEL 2: CALENDARIO -->
+      <div class="demo-panel">
+        <div class="demo-cal-header">
+          <span id="demo-cal-date-str" class="demo-cal-date-str">—</span>
+          <span id="demo-cal-count">0 transazioni</span>
+        </div>
+        <div id="demo-cal-rows">
+          <p class="demo-cal-empty">Ancora nessun movimento.</p>
+        </div>
+        <div id="demo-cal-footer"></div>
       </div>
-      <div id="demo-cal-rows">
-        <p class="demo-cal-empty">Ancora nessun movimento.</p>
-      </div>
-      <div id="demo-cal-footer"></div>
-    </div>
 
-    <div class="demo-arrow">→</div>
+      <!-- PANEL 3: HERO DARK -->
+      <div class="demo-panel demo-panel-dark">
+        <div class="demo-home-eyebrow" id="out-home-date"></div>
+        <div class="demo-home-saldo" id="out-home-saldo">3.140,18 €</div>
+        <div class="demo-home-divider"></div>
+        <div class="demo-home-row">
+          <div>
+            <div class="demo-home-sub">Inizio mese</div>
+            <div class="demo-home-val">3.140,18 €</div>
+          </div>
+          <div style="text-align:right">
+            <div class="demo-home-sub">Fine mese</div>
+            <div class="demo-home-val" id="out-fine-mese">3.140,18 €</div>
+          </div>
+        </div>
+        <div class="demo-home-divider"></div>
+        <div class="demo-home-row">
+          <div>
+            <div class="demo-home-sub">Entrate previste</div>
+            <div class="demo-home-val demo-green" id="out-entrate">0,00 €</div>
+          </div>
+          <div style="text-align:right">
+            <div class="demo-home-sub">Uscite previste</div>
+            <div class="demo-home-val demo-red" id="out-uscite">0,00 €</div>
+          </div>
+        </div>
+      </div>
 
-    <!-- PANEL 3: HERO DARK -->
-    <div class="demo-panel demo-panel-dark">
-      <div class="demo-home-eyebrow" id="out-home-date"></div>
-      <div class="demo-home-saldo" id="out-home-saldo">3.140,18 €</div>
-      <div class="demo-home-divider"></div>
-      <div class="demo-home-row">
-        <div>
-          <div class="demo-home-sub">Inizio mese</div>
-          <div class="demo-home-val">3.140,18 €</div>
-        </div>
-        <div style="text-align:right">
-          <div class="demo-home-sub">Fine mese</div>
-          <div class="demo-home-val" id="out-fine-mese">3.140,18 €</div>
-        </div>
-      </div>
-      <div class="demo-home-divider"></div>
-      <div class="demo-home-row">
-        <div>
-          <div class="demo-home-sub">Entrate previste</div>
-          <div class="demo-home-val demo-green" id="out-entrate">0,00 €</div>
-        </div>
-        <div style="text-align:right">
-          <div class="demo-home-sub">Uscite previste</div>
-          <div class="demo-home-val demo-red" id="out-uscite">0,00 €</div>
-        </div>
-      </div>
     </div>
 
   </div>
