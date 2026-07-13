@@ -521,15 +521,15 @@ section h2 {
 .demo-cal-foot-row + .demo-cal-foot-row { border-top: none; }
 
 /* ── Panel 3: Hero dark ── */
-.demo-home-eyebrow { font-size: 0.875rem; color: #ffffff; padding: 1.25rem 1.25rem 0.25rem; }
+.demo-home-eyebrow { font-size: 14px; color: #ffffff; padding: 1.25rem 1.25rem 0.25rem; }
 .demo-home-saldo {
-  font-size: 3rem; font-weight: 700; letter-spacing: -0.025em; line-height: 1;
+  font-size: 36px; font-weight: 700; letter-spacing: -0.025em; line-height: 1;
   padding: 0.5rem 1.25rem 1.25rem; transition: color 0.2s;
 }
 .demo-home-divider { height: 1px; background: rgba(255,255,255,0.15); margin: 0 1.25rem; }
 .demo-home-row { display: flex; justify-content: space-between; padding: 0.875rem 1.25rem; }
-.demo-home-sub { font-size: 0.875rem; color: #ffffff; margin-bottom: 0.25rem; font-weight: 400; }
-.demo-home-val { font-size: 1.5rem; font-weight: 700; transition: color 0.2s; }
+.demo-home-sub { font-size: 14px; color: #ffffff; margin-bottom: 0.25rem; font-weight: 400; }
+.demo-home-val { font-size: 20px; font-weight: 700; transition: color 0.2s; }
 
 .demo-green { color: #4ade80 !important; }
 .demo-red   { color: #ef4444 !important; }
