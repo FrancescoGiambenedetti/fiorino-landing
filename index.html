@@ -345,7 +345,7 @@
     var totExp = movements.filter(function(m){return m.type==='expense';}).reduce(function(s,m){return s+m.amt;},0);
     var bal = INIZIO + totInc - totExp;
     var sEl = document.getElementById('out-home-saldo');
-    if (sEl) { sEl.textContent = fmt(bal); sEl.style.color = movements.length>0 ? (bal<INIZIO?'#f87171':bal>INIZIO?'#4ade80':'') : ''; }
+    if (sEl) { sEl.textContent = fmt(bal); sEl.style.color = bal < 0 ? '#ef4444' : ''; }
     var fEl = document.getElementById('out-fine-mese');
     if (fEl) { fEl.textContent = fmt(bal); fEl.style.color = sEl ? sEl.style.color : ''; }
     var eEl = document.getElementById('out-entrate'); if (eEl) eEl.textContent = fmt(totInc);
