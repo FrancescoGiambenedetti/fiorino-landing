@@ -197,7 +197,7 @@
   var today = new Date();
 
   var CONTI = ['Conto corrente', 'Prepagata', 'Portafogli'];
-  var CATS  = ['Spesa', 'Trasporti', 'Ristorante', 'Salute', 'Svago', 'Abbonamenti', 'Altro'];
+  var CATS  = ['Altro', 'Benessere', 'Istruzione', 'Ristorazione', 'Spesa', 'Viaggi'];
   var CAL_SVG = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" style="display:block"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>';
   var CHV_SVG = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="display:block"><polyline points="6 9 12 15 18 9"/></svg>';
 
@@ -225,7 +225,7 @@
 
     if (movements.length >= 3) {
       if (tabsEl) tabsEl.style.display = 'none';
-      body.innerHTML = '<div class="demo-max"><p>Hai inserito 3 movimenti.</p><button class="demo-reset-btn" onclick="demoReset()">Ricomincia</button><p class="demo-note">Demo — nessun dato viene salvato</p></div>';
+      body.innerHTML = '<div class="demo-max"><p>Hai inserito 3 movimenti.</p><button class="demo-reset-btn" onclick="demoReset()">Ricomincia</button><p class="demo-note">Demo: nessun dato viene salvato</p></div>';
       return;
     }
     if (tabsEl) tabsEl.style.display = '';
@@ -234,7 +234,7 @@
     // Data
     h += field('Data', inputWrap(CAL_SVG, '<input type="text" class="df-input df-input-icon" value="'+fmtShort(today)+'" readonly />'));
     // Importo
-    h += field('Importo (€)', '<input id="df-amt" type="text" inputmode="decimal" class="df-input" placeholder="0,00" oninput="demoLimitDec(this)" autocomplete="off" />');
+    h += field('Importo (€)', '<input id="df-amt" type="text" inputmode="decimal" class="df-input" placeholder="" oninput="demoLimitDec(this)" autocomplete="off" />');
 
     h += field('Conto', selWrap('<select id="df-acc" class="df-select">'+opts(CONTI,'Conto corrente')+'</select>'));
     if (tab === 'expense') {
@@ -244,7 +244,7 @@
 
     h += '<div class="df-btns"><button class="df-btn-sec" onclick="demoAnnulla()">Annulla</button><button class="df-btn-pri" onclick="demoSave()">Salva</button></div>';
     var n = movements.length;
-    h += '<p class="demo-note">'+(n > 0 ? n+'/3 movimenti aggiunti · ' : '')+'Demo — nessun dato viene salvato</p>';
+    h += '<p class="demo-note">'+(n > 0 ? n+'/3 movimenti aggiunti · ' : '')+'Demo: nessun dato viene salvato</p>';
     h += '</div>';
     body.innerHTML = h;
   }
