@@ -514,11 +514,12 @@ section h2 {
 .demo-cal-amt { font-size: 0.9375rem; font-weight: 600; flex-shrink: 0; color: var(--muted); }
 
 .demo-cal-foot-row {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 0.625rem 1rem; font-size: 0.875rem; font-weight: 500;
-  color: var(--muted); background: #f4f4f4;
+  display: flex; align-items: flex-start; gap: 1.5rem;
+  padding: 0.75rem 1rem; background: #f4f4f4;
 }
-.demo-cal-foot-row + .demo-cal-foot-row { border-top: none; }
+.demo-cal-foot-col { display: flex; flex-direction: column; gap: 0.2rem; }
+.demo-cal-foot-label { font-size: 0.75rem; color: var(--muted); font-weight: 400; }
+.demo-cal-foot-val { font-size: 0.9375rem; font-weight: 700; }
 
 /* ── Panel 3: Hero dark ── */
 .demo-home-eyebrow { font-size: 14px; color: #ffffff; padding: 1.25rem 1.25rem 0.25rem; }

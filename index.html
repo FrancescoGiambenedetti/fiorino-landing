@@ -337,10 +337,11 @@
     if (footEl) {
       var totInc = movements.filter(function(m){return m.type==='income';}).reduce(function(s,m){return s+m.amt;},0);
       var totExp = movements.filter(function(m){return m.type==='expense';}).reduce(function(s,m){return s+m.amt;},0);
-      var fh = '';
-      if (totInc > 0) fh += '<div class="demo-cal-foot-row"><span>Entrate</span><span class="demo-green">+'+fmt(totInc)+'</span></div>';
-      if (totExp > 0) fh += '<div class="demo-cal-foot-row"><span>Uscite</span><span class="demo-red">−'+fmt(totExp)+'</span></div>';
-      footEl.innerHTML = fh;
+      var cols = '';
+      if (totInc > 0) cols += '<div class="demo-cal-foot-col"><span class="demo-cal-foot-label">Entrate</span><span class="demo-cal-foot-val demo-green">+'+fmt(totInc)+'</span></div>';
+      if (totExp > 0) cols += '<div class="demo-cal-foot-col"><span class="demo-cal-foot-label">Uscite</span><span class="demo-cal-foot-val demo-red">−'+fmt(totExp)+'</span></div>';
+      footEl.innerHTML = cols ? '<div class="demo-cal-foot-row">'+cols+'</div>' : '';
+
     }
   }
 
