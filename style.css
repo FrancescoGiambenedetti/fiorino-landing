@@ -528,16 +528,17 @@ section h2 {
 }
 .demo-home-divider { height: 1px; background: rgba(255,255,255,0.1); margin: 0 1.25rem; }
 .demo-home-row { display: flex; justify-content: space-between; padding: 0.875rem 1.25rem; }
-.demo-home-sub { font-size: 0.6875rem; color: rgba(255,255,255,0.4); margin-bottom: 0.3rem; }
+.demo-home-sub { font-size: 0.6875rem; color: rgba(255,255,255,0.85); margin-bottom: 0.3rem; }
 .demo-home-val { font-size: 0.9375rem; font-weight: 600; transition: color 0.2s; }
 
 .demo-green { color: #4ade80 !important; }
 .demo-red   { color: #ef4444 !important; }
 
 @media (min-width: 760px) {
-  .demo-grid { flex-direction: row; align-items: center; gap: 1rem; }
+  .demo-grid { flex-direction: row; align-items: flex-start; gap: 1rem; }
   .demo-col2 { gap: 1rem; }
-  .demo-arrow-svg { transform: none; }
+  /* freccia orizzontale: allineata al centro dell'header calendario (~3.25rem / 2 - icona/2) */
+  .demo-arrow-svg:not(.demo-arrow-down) { transform: none; margin-top: 1.4rem; }
   .demo-arrow-down { transform: none; }
 }
 

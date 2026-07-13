@@ -188,17 +188,6 @@
             <div class="demo-home-val" id="out-fine-mese">3.140,18 €</div>
           </div>
         </div>
-        <div class="demo-home-divider"></div>
-        <div class="demo-home-row">
-          <div>
-            <div class="demo-home-sub">Entrate previste</div>
-            <div class="demo-home-val demo-green" id="out-entrate">0,00 €</div>
-          </div>
-          <div style="text-align:right">
-            <div class="demo-home-sub">Uscite previste</div>
-            <div class="demo-home-val demo-red" id="out-uscite">0,00 €</div>
-          </div>
-        </div>
       </div>
 
     </div>
@@ -257,7 +246,7 @@
     if (tab === 'expense') {
       h += field('Categoria', selWrap('<select id="df-cat" class="df-select">'+opts(CATS,'Spesa')+'</select>'));
     }
-    h += field('Descrizione (opzionale)', '<textarea id="df-desc" class="df-textarea" rows="2" placeholder=""></textarea>');
+    h += field('Descrizione (opzionale)', '<input id="df-desc" type="text" class="df-input" placeholder="es. Cena con amici" autocomplete="off" />');
 
     h += '<div class="df-btns"><button class="df-btn-sec" onclick="demoAnnulla()">Annulla</button><button class="df-btn-pri" onclick="demoSave()">Salva</button></div>';
     h += '<p class="demo-note">Demo: nessun dato viene salvato</p>';
