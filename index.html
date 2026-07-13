@@ -304,6 +304,13 @@
     updateHero();
   };
 
+  window.demoDelete = function(i) {
+    movements.splice(i, 1);
+    updateCalendar();
+    updateHero();
+    renderForm();
+  };
+
   function updateCalendar() {
     var n = movements.length;
     var dateEl = document.getElementById('demo-cal-date-str');
@@ -319,7 +326,8 @@
       return;
     }
     var rows = '';
-    movements.forEach(function(m) {
+    var TRASH_SVG = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg>';
+    movements.forEach(function(m, i) {
       var isInc = m.type==='income';
       var amtCls = isInc ? 'demo-green' : 'demo-red';
       var sign   = isInc ? '+' : '−';
@@ -331,6 +339,7 @@
       if (m.cat) rows += '<span class="demo-cal-cat">'+esc(m.cat)+'</span>';
       rows += '</div></div>';
       rows += '<p class="demo-cal-amt '+amtCls+'">'+sign+fmt(m.amt)+'</p>';
+      rows += '<button class="demo-cal-del" onclick="demoDelete('+i+')" title="Elimina">'+TRASH_SVG+'</button>';
       rows += '</div>';
     });
     rowsEl.innerHTML = rows;
