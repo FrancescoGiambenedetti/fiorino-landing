@@ -747,11 +747,11 @@ footer {
 
 .footer-product { font-size: 1.0625rem; font-weight: 700; color: #ffffff; }
 
-.footer-muted { font-size: 0.8125rem; color: rgba(255,255,255,0.45); }
+.footer-muted { font-size: 0.8125rem; color: #ffffff; }
 
 .footer-link {
   font-size: 0.8125rem;
-  color: rgba(255,255,255,0.45);
+  color: #ffffff;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
