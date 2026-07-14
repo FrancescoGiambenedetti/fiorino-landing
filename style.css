@@ -1122,14 +1122,12 @@ footer {
 
 .faq-list {
   margin-top: 2rem;
-}
-
-.faq-item {
   border-top: 1px solid var(--border);
 }
 
-.faq-item:last-child {
+.faq-item {
   border-bottom: 1px solid var(--border);
+  margin: 0;
 }
 
 .faq-q {
@@ -1159,12 +1157,14 @@ footer {
 
 details[open] .faq-q::after { content: '−'; }
 
+details.faq-item { display: block; }
+
 .faq-a {
   font-size: 1.0625rem;
   color: #0a1a10;
   line-height: 1.7;
   padding-bottom: 1.25rem;
-  max-width: none;
+  margin: 0;
 }
 
 /* ── CTA FINALE ─────────────────────────── */
