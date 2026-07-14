@@ -815,7 +815,7 @@ footer {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(8, 20, 10, 0.84);
+  background: rgba(8, 20, 10, 0.91);
 }
 
 .hero-content {
@@ -859,7 +859,7 @@ footer {
 
 .hero-body {
   font-size: 1.0625rem;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.82);
   line-height: 1.7;
   max-width: 34rem;
   margin-bottom: 2.25rem;
