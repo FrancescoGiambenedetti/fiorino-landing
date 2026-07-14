@@ -815,7 +815,7 @@ footer {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(8, 20, 10, 0.72);
+  background: rgba(8, 20, 10, 0.84);
 }
 
 .hero-content {
@@ -827,14 +827,14 @@ footer {
 }
 
 .hero-logo {
-  height: 1.875rem;
+  height: 2.75rem;
   width: auto;
   display: block;
   margin-bottom: 2.5rem;
   filter: brightness(0) invert(1);
 }
 
-.hero-accent { color: #b8f768; }
+.hero-accent { color: #e8c23a; }
 
 .hero-h1 {
   font-family: Georgia, 'Times New Roman', serif;
