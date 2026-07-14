@@ -890,6 +890,8 @@ footer {
 
 .hero-cta-row { margin-bottom: 1rem; }
 
+.hero-note { font-size: 0.875rem; color: rgba(255,255,255,0.55); margin-top: 0.75rem; }
+
 .btn-hero {
   display: inline-flex;
   align-items: center;
