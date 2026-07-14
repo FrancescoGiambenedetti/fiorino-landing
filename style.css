@@ -803,10 +803,23 @@ footer {
 
 /* ── HERO ───────────────────────────────── */
 .s-hero {
-  background: linear-gradient(to right, #071510 0%, #0a1a10 45%, #163320 80%, #1e3d28 100%);
+  background: linear-gradient(to bottom, #071510 0%, #0a1a10 45%, #163320 80%, #1e3d28 100%);
   border-bottom: none;
   padding: 0;
 }
+
+@media (min-width: 640px) {
+  .s-hero {
+    background: none;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg-img { display: block; }
+  .hero-overlay { display: block; }
+}
+
+.hero-bg-img { display: none; }
+.hero-overlay { display: none; }
 
 .hero-bg-img {
   position: absolute;
