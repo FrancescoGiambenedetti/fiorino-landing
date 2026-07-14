@@ -993,41 +993,53 @@ footer {
 }
 
 /* ── EMOZIONE ───────────────────────────── */
-.pg-photo-break { line-height: 0; overflow: hidden; }
-
-.pg-photo-break img {
-  width: 100%;
-  height: 50vw;
-  max-height: 520px;
-  min-height: 240px;
-  object-fit: cover;
-  object-position: center 25%;
-  display: block;
-}
-
 .s-emo {
-  background: #f4e0a0;
-  padding: 5rem 1.25rem;
-  border-bottom: none;
+  position: relative;
+  overflow: hidden;
 }
 
-.s-emo .pg-h2 { color: #1a0e00; }
-.s-emo .pg-intro { color: #0a1a10; margin-bottom: 2rem; }
-.emo-body { color: #0a1a10; }
+.emo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(232,194,58,0.15) 0%, rgba(232,194,58,0.60) 30%,
+    rgba(232,194,58,0.97) 55%, rgba(232,194,58,0.97) 100%
+  );
+}
+
+.emo-content {
+  position: relative;
+  z-index: 2;
+  padding: 4rem 1.25rem 4.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.emo-h2 { color: #0a1a10; text-align: right; }
+.emo-body { color: #0a1a10; text-align: right; max-width: 38rem; }
 
 .emo-words {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-end;
   align-items: baseline;
   gap: 0.75rem;
   margin-top: 0.5rem;
 }
 
 .ew { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
-.ew-1 { font-size: 1.375rem; color: #1e6fb8; }
-.ew-2 { font-size: 2rem;     color: #e85d3a; }
-.ew-3 { font-size: 2.75rem;  color: #0a6630; }
-.ew-4 { font-size: 3.75rem;  color: #c97a00; }
+.ew-1 { font-size: 1.375rem; color: #0a4a20; }
+.ew-2 { font-size: 2rem;     color: #0a3010; }
+.ew-3 { font-size: 2.75rem;  color: #061a09; }
+.ew-4 { font-size: 3.75rem;  color: #0a1a10; }
+
+@media (min-width: 640px) {
+  .emo-content { padding: 5.5rem 0 6rem; }
+}
 
 /* ── FUNZIONALITÀ ───────────────────────── */
 .s-feat {
@@ -1123,7 +1135,7 @@ footer {
   .hero-content { padding: 5.5rem 0 6rem; }
   .s-demo       { padding: 5rem 2.5rem; }
   .s-diff       { padding: 6rem 2.5rem; }
-  .s-emo        { padding: 6rem 2.5rem; }
+  .emo-content  { padding: 5.5rem 0 6rem; }
   .s-feat       { padding: 6rem 2.5rem; }
   .s-pricing    { padding: 7rem 2.5rem; }
 }
