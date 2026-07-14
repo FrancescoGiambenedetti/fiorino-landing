@@ -831,6 +831,7 @@ footer {
   width: auto;
   display: block;
   margin-bottom: 2.5rem;
+  filter: brightness(0) invert(1);
 }
 
 .hero-accent { color: #e8c23a; }
