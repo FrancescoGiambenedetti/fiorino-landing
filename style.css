@@ -1170,6 +1170,12 @@ details[open] .faq-q::after { content: '−'; }
 
 details.faq-item { display: block; }
 
+.faq-link {
+  color: #0a1a10;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .faq-a {
   font-size: 1.0625rem;
   color: #0a1a10 !important;
