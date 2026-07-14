@@ -373,8 +373,8 @@ section h2 {
 .demo-section { background: var(--bg); }
 
 .demo-intro { color: #0a1a10 !important; }
-.demo-grid { display: flex; flex-direction: column; gap: 0.75rem; margin: 0; max-width: 850px; }
-.demo-col2 { display: flex; flex-direction: column; gap: 0.75rem; flex: 1; max-width: 384px; }
+.demo-grid { display: flex; flex-direction: column; gap: 0.75rem; margin: 0; }
+.demo-col2 { display: flex; flex-direction: column; gap: 0.75rem; flex: 1; }
 
 /* Frecce SVG */
 .demo-arrow-svg {
@@ -394,7 +394,7 @@ section h2 {
   border-radius: 0;
   overflow: hidden;
 }
-.demo-form-panel { width: 100%; max-width: 384px; flex-shrink: 0; }
+.demo-form-panel { width: 100%; flex: 1; flex-shrink: 0; }
 .demo-panel-dark { background: var(--fg); border-color: var(--fg); color: var(--bg); }
 
 /* ── Tabs (Entrata / Uscita) ── */
