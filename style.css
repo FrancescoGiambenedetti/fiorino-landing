@@ -919,7 +919,7 @@ footer {
 }
 
 .pg-featured-card {
-  background: #0a1a10;
+  background: linear-gradient(to right, #071510 0%, #0a1a10 50%, #163320 100%);
   padding: 2rem 1.75rem;
   margin-bottom: 0;
 }
