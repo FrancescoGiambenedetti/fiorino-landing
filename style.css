@@ -827,14 +827,14 @@ footer {
 }
 
 .hero-logo {
-  height: 2.75rem;
+  height: 3.5rem;
   width: auto;
   display: block;
   margin-bottom: 2.5rem;
-  filter: brightness(0) invert(1);
 }
 
 .hero-accent { color: #e8c23a; }
+.hero-dot { color: #ffffff; }
 
 .hero-h1 {
   font-family: Georgia, 'Times New Roman', serif;
@@ -869,7 +869,7 @@ footer {
 .btn-hero {
   display: inline-flex;
   align-items: center;
-  background: #b8f768;
+  background: #e8c23a;
   color: #0a1a10;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 1rem;
