@@ -10,54 +10,10 @@
 </head>
 <body>
 
-<!-- PASSWORD GATE -->
-<div id="gate" style="display:none;position:fixed;inset:0;background:#f6f6f4;z-index:9999;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;">
-  <div style="width:100%;max-width:360px;padding:2rem;text-align:center;">
-    <div style="font-size:1.5rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:0.5rem;">fiorino</div>
-    <p style="color:#888880;font-size:0.875rem;margin-bottom:1.5rem;">Accesso riservato — inserisci la password</p>
-    <input id="gate-input" type="password" placeholder="Password" autocomplete="off"
-      style="width:100%;box-sizing:border-box;padding:0.75rem 1rem;font-family:inherit;font-size:1rem;background:#f4f4f5;border:none;outline:none;border-radius:0.5rem;margin-bottom:0.75rem;"/>
-    <div id="gate-error" style="color:#ef4444;font-size:0.8125rem;min-height:1.25rem;margin-bottom:0.5rem;"></div>
-    <button onclick="gateCheck()"
-      style="width:100%;padding:0.75rem;background:#0d0d0d;color:#fff;font-family:inherit;font-size:1rem;font-weight:600;border:none;border-radius:0.5rem;cursor:pointer;">
-      Entra
-    </button>
-  </div>
-</div>
-
-<script>
-(function() {
-  var PSW = '123123';
-  var gate = document.getElementById('gate');
-  if (sessionStorage.getItem('fiorino_access') === '1') {
-    gate.style.display = 'none';
-  } else {
-    document.body.style.overflow = 'hidden';
-    gate.style.display = 'flex';
-  }
-  document.getElementById('gate-input').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') gateCheck();
-  });
-  window.gateCheck = function() {
-    var val = document.getElementById('gate-input').value;
-    if (val === PSW) {
-      sessionStorage.setItem('fiorino_access', '1');
-      gate.style.display = 'none';
-      document.body.style.overflow = '';
-    } else {
-      document.getElementById('gate-error').textContent = 'Password errata.';
-      document.getElementById('gate-input').value = '';
-      document.getElementById('gate-input').focus();
-    }
-  };
-})();
-</script>
 
 
 <!-- HERO -->
 <section class="s-hero">
-  <img src="foto-hero.webp" alt="Giovane donna al caffè con lo smartphone" class="hero-bg-img" />
-  <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1><img src="logo-white.png" alt="Fiorino" class="hero-logo" /></h1>
     <h2 class="hero-h1">I tuoi <span class="hero-accent">soldi</span><span class="hero-dot">.</span><br>Finalmente <span class="hero-accent">chiari</span><span class="hero-dot">.</span></h2>

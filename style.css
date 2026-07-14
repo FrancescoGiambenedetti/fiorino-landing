@@ -803,10 +803,9 @@ footer {
 
 /* ── HERO ───────────────────────────────── */
 .s-hero {
-  position: relative;
+  background: linear-gradient(to right, #071510 0%, #0a1a10 45%, #163320 80%, #1e3d28 100%);
   border-bottom: none;
   padding: 0;
-  overflow: hidden;
 }
 
 .hero-bg-img {
