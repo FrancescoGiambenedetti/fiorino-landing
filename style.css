@@ -805,15 +805,16 @@ footer {
 .s-hero {
   background: linear-gradient(to right, #071510 0%, #0a1a10 45%, #163320 80%, #1e3d28 100%);
   border-bottom: none;
-  padding: 0;
-}
-
-.hero-content {
   padding: 4rem 1.25rem 4.5rem;
 }
 
 @media (min-width: 640px) {
-  .hero-content { padding: 5.5rem 0 6rem; }
+  .s-hero { padding: 5.5rem 2.5rem 6rem; }
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .hero-logo {
