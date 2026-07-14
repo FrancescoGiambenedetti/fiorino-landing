@@ -895,9 +895,9 @@ footer {
   border-radius: 0;
   text-decoration: none;
   letter-spacing: 0.01em;
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
-.btn-hero:hover { background: #f0d470; }
+.btn-hero:hover { background: #e8c23a; transform: translateY(4px); }
 
 .pg-feat-card {
   transition: transform 0.2s ease;
