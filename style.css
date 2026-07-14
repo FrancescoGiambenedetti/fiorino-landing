@@ -897,12 +897,12 @@ footer {
   letter-spacing: 0.01em;
   transition: background 0.2s ease, transform 0.2s ease;
 }
-.btn-hero:hover { background: #e8c23a; transform: translateY(4px); }
+.btn-hero:hover { background: #e8c23a; transform: translateY(-4px); }
 
 .pg-feat-card {
   transition: transform 0.2s ease;
 }
-.pg-feat-card:not(.pg-feat-coming):hover { transform: translateY(4px); }
+.pg-feat-card:not(.pg-feat-coming):hover { transform: translateY(-4px); }
 .pg-feat-coming { opacity: 0.45; cursor: default; }
 
 .hero-note {
