@@ -791,7 +791,6 @@ footer {
   font-size: 1.0625rem;
   color: #0a1a10;
   line-height: 1.7;
-  max-width: 38rem;
   margin-bottom: 3rem;
 }
 
@@ -1020,7 +1019,7 @@ footer {
 }
 
 .emo-h2 { color: #ffffff; text-align: right; }
-.emo-body { color: #ffffff; text-align: right; max-width: 38rem; }
+.emo-body { color: #ffffff; text-align: right; }
 
 .emo-words {
   display: flex;
@@ -1117,7 +1116,6 @@ footer {
   font-size: 1.0625rem;
   color: rgba(255,255,255,0.5);
   line-height: 1.7;
-  max-width: 34rem;
   margin-bottom: 2.5rem;
 }
 
