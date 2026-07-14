@@ -78,7 +78,6 @@ nav {
 /* SECTIONS */
 section {
   padding: 2.5rem 1.25rem;
-  border-bottom: 1px solid var(--border);
 }
 
 section:last-of-type { border-bottom: none; }
