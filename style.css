@@ -914,7 +914,7 @@ footer {
 
 /* ── DIFFERENZIATORI ────────────────────── */
 .s-diff {
-  background: #f5f5f3;
+  background: #e1ebf3;
   padding: 5rem 1.25rem;
   border-bottom: none;
 }
@@ -938,7 +938,7 @@ footer {
 .pg-featured-title {
   display: block;
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(1.375rem, 3vw, 2rem);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
   font-weight: normal;
   color: #ffffff;
   margin-bottom: 0.875rem;
