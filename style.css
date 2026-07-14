@@ -748,11 +748,11 @@ footer {
 .footer-product { font-size: 1.0625rem; font-weight: 700; color: #ffffff; }
 .footer-separator { opacity: 0.45; font-weight: 400; margin: 0 0.5rem; }
 
-.footer-muted { font-size: 0.8125rem; color: #ffffff; }
+.footer-muted { font-size: 0.8125rem; color: rgba(255,255,255,0.72); }
 
 .footer-link {
   font-size: 0.8125rem;
-  color: #ffffff;
+  color: rgba(255,255,255,0.72);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -873,7 +873,7 @@ footer {
 
 .hero-sub {
   font-size: 1.0625rem;
-  color: #ffffff;
+  color: rgba(255,255,255,0.82);
   font-weight: 600;
   line-height: 1.4;
   margin-bottom: 0.75rem;
@@ -882,7 +882,7 @@ footer {
 
 .hero-body {
   font-size: 1.0625rem;
-  color: #ffffff;
+  color: rgba(255,255,255,0.82);
   line-height: 1.7;
   max-width: 34rem;
   margin-bottom: 2.25rem;
@@ -960,7 +960,7 @@ footer {
 
 .pg-featured-body {
   font-size: 1.0625rem;
-  color: #ffffff;
+  color: rgba(255,255,255,0.82);
   line-height: 1.7;
 }
 
