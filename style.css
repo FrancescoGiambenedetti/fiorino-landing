@@ -1121,7 +1121,7 @@ footer {
 
 /* ── RESPONSIVE ─────────────────────────── */
 @media (min-width: 640px) {
-  .hero-content { padding: 5.5rem 2.5rem 6rem; }
+  .hero-content { padding: 5.5rem 0 6rem; }
   .s-demo       { padding: 5rem 2.5rem; }
   .s-diff       { padding: 6rem 2.5rem; }
   .s-emo        { padding: 6rem 2.5rem; }
