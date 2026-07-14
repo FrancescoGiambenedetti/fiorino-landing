@@ -1114,18 +1114,57 @@ footer {
   margin-left: 0.375rem;
 }
 
-/* ── PRICING ────────────────────────────── */
+/* ── PRICING + FAQ ──────────────────────── */
 .s-pricing {
-  background: #0a1a10;
-  border-bottom: none;
+  background: #ffffff;
   padding: 5rem 1.25rem;
 }
 
-.pricing-body {
+.faq-list {
+  margin-top: 2rem;
+}
+
+.faq-item {
+  border-top: 1px solid var(--border);
+}
+
+.faq-item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.faq-q {
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 1.0625rem;
-  color: rgba(255,255,255,0.5);
+  font-weight: 600;
+  color: #0a1a10;
+  padding: 1.25rem 0;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+.faq-q::-webkit-details-marker { display: none; }
+
+.faq-q::after {
+  content: '+';
+  font-size: 1.25rem;
+  font-weight: 300;
+  flex-shrink: 0;
+  margin-left: 1rem;
+  color: #0a1a10;
+}
+
+details[open] .faq-q::after { content: '−'; }
+
+.faq-a {
+  font-size: 1.0625rem;
+  color: #0a1a10;
   line-height: 1.7;
-  margin-bottom: 2.5rem;
+  padding-bottom: 1.25rem;
+  max-width: none;
 }
 
 /* ── CTA FINALE ─────────────────────────── */
