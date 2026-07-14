@@ -786,41 +786,41 @@ footer {
 
 /* ── HERO ───────────────────────────────── */
 .s-hero {
-  background: #0a1a10;
+  position: relative;
   border-bottom: none;
   padding: 0;
-  display: flex;
-  flex-direction: column;
+  overflow: hidden;
 }
 
-.hero-text-col {
-  background: #0a1a10;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.hero-text-inner {
-  padding: 2.5rem 1.25rem 2.5rem;
-}
-
-.hero-img-col { overflow: hidden; }
-
-.hero-img-col img {
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: 100%;
   object-fit: cover;
   object-position: 70% center;
   display: block;
 }
 
-.s-hero .eyebrow-tag { color: #4ade80; }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 20, 10, 0.72);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 4rem 1.25rem 4rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
 
 .hero-logo {
-  height: 2rem;
+  height: 1.875rem;
   width: auto;
   display: block;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   filter: brightness(0) invert(1);
 }
 
@@ -828,7 +828,7 @@ footer {
 
 .hero-h1 {
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(2.25rem, 6vw, 3.75rem);
+  font-size: clamp(2.75rem, 8vw, 5.5rem);
   font-weight: normal;
   line-height: 1.0;
   letter-spacing: -0.02em;
@@ -837,19 +837,25 @@ footer {
   text-wrap: balance;
 }
 
+.hero-sub {
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  color: #ffffff;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+  max-width: 38rem;
+}
+
 .hero-body {
-  font-size: 1.125rem;
-  color: rgba(255,255,255,0.65);
+  font-size: 1.0625rem;
+  color: rgba(255,255,255,0.6);
   line-height: 1.7;
-  max-width: 32rem;
-  margin-bottom: 2rem;
+  max-width: 34rem;
+  margin-bottom: 2.25rem;
 }
 
 .hero-cta-row {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.875rem;
+  margin-bottom: 1rem;
 }
 
 .btn-hero {
@@ -863,13 +869,14 @@ footer {
   padding: 0.9rem 1.875rem;
   border-radius: 0;
   text-decoration: none;
+  letter-spacing: 0.01em;
 }
 
 .hero-note {
-  font-size: 0.9375rem;
-  color: rgba(255,255,255,0.38);
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.35);
   line-height: 1.55;
-  max-width: 26rem;
+  display: block;
 }
 
 /* ── DIFF ───────────────────────────────── */
@@ -1163,12 +1170,8 @@ footer {
 }
 
 @media (min-width: 760px) {
-  /* Hero split */
-  .s-hero { flex-direction: row; }
-  .hero-text-col { flex: 0 0 55%; }
-  .hero-text-inner { padding: 3rem 2.5rem 3rem 2.5rem; max-width: 500px; margin-left: auto; }
-  .hero-img-col { flex: 0 0 45%; max-height: 420px; }
-  .hero-img-col img { width: 100%; height: 100%; aspect-ratio: unset; object-fit: cover; object-position: 70% center; }
+  /* Hero full-bleed */
+  .hero-content { padding: 5.5rem 2.5rem 5.5rem; }
 
   /* Emozione split */
   .s-emo { flex-direction: row; min-height: 520px; }
