@@ -834,6 +834,16 @@ footer {
 }
 
 
+.hero-brand {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: normal;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
 .hero-accent { color: #e8c23a; }
 .hero-dot { color: #ffffff; }
 
