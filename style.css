@@ -902,7 +902,8 @@ footer {
 .pg-feat-card {
   transition: transform 0.2s ease;
 }
-.pg-feat-card:hover { transform: translateY(4px); }
+.pg-feat-card:not(.pg-feat-coming):hover { transform: translateY(4px); }
+.pg-feat-coming { opacity: 0.45; cursor: default; }
 
 .hero-note {
   font-size: 0.875rem;
