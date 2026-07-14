@@ -789,7 +789,7 @@ footer {
 
 .pg-intro {
   font-size: 1.0625rem;
-  color: var(--muted);
+  color: #0a1a10;
   line-height: 1.7;
   max-width: 38rem;
   margin-bottom: 3rem;
@@ -988,7 +988,7 @@ footer {
 
 .pg-check-body {
   font-size: 1.0625rem;
-  color: var(--muted);
+  color: #0a1a10;
   line-height: 1.65;
 }
 
@@ -1012,8 +1012,8 @@ footer {
 }
 
 .s-emo .pg-h2 { color: #1a0e00; }
-.s-emo .pg-intro { color: #5a4010; margin-bottom: 2rem; }
-.emo-body { color: #5a4010; }
+.s-emo .pg-intro { color: #0a1a10; margin-bottom: 2rem; }
+.emo-body { color: #0a1a10; }
 
 .emo-words {
   display: flex;
@@ -1077,7 +1077,7 @@ footer {
 
 .pg-feat-body {
   font-size: 1.0625rem;
-  color: var(--muted);
+  color: #0a1a10;
   line-height: 1.65;
 }
 
