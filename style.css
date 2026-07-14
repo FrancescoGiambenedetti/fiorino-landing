@@ -1073,17 +1073,9 @@ footer {
 .pg-feat-coming { opacity: 0.45; }
 
 .pg-feat-num {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 1.125rem;
-  font-weight: normal;
-  color: #b8f768;
-  background: #0a1a10;
-  min-width: 2.75rem;
-  height: 2.75rem;
-  border-radius: 50%;
+  color: #0a1a10;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-shrink: 0;
 }
 
