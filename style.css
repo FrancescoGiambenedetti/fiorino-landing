@@ -1116,7 +1116,7 @@ footer {
 /* ── PRICING + FAQ ──────────────────────── */
 .s-pricing {
   background: #ffffff;
-  padding: 5rem 1.25rem;
+  padding: 5rem 1.25rem 0;
 }
 
 .s-faq {
@@ -1187,7 +1187,7 @@ details.faq-item { display: block; }
   .s-diff       { padding: 6rem 2.5rem; }
   .emo-content  { padding: 5.5rem 0 6rem; }
   .s-feat       { padding: 6rem 2.5rem; }
-  .s-pricing    { padding: 7rem 2.5rem; }
+  .s-pricing    { padding: 7rem 2.5rem 0; }
   .s-faq        { padding: 7rem 2.5rem; }
 }
 
