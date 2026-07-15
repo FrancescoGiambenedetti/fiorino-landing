@@ -964,9 +964,9 @@ footer {
 }
 
 @media (max-width: 639px) {
-  .pg-featured-bg { display: none; }
-  .pg-featured-overlay { display: none; }
-  .pg-featured-card-img { background: linear-gradient(to right, #071510 0%, #0a1a10 45%, #163320 80%, #1e3d28 100%); }
+  .pg-featured-overlay {
+    background: rgba(7,21,16,0.72);
+  }
 }
 
 .pg-featured-content {
