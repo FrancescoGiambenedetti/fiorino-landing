@@ -840,7 +840,11 @@ footer {
 }
 
 @media (min-width: 640px) {
-  .hero-content { padding: 5.5rem 2.5rem 6rem; }
+  .hero-content {
+    padding: 5.5rem 2.5rem 6rem;
+    max-width: 50%;
+    margin: 0;
+  }
 }
 
 .hero-logo {
