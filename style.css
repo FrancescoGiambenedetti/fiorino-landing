@@ -841,7 +841,8 @@ footer {
 
 @media (min-width: 640px) {
   .hero-content { padding: 5.5rem 2.5rem 6rem; }
-  .hero-h1, .hero-sub, .hero-body, .hero-cta-row { max-width: 50%; }
+  .hero-h1, .hero-sub, .hero-cta-row { max-width: 50%; }
+  .hero-body { max-width: 34rem; }
 }
 
 .hero-logo {
