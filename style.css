@@ -806,16 +806,41 @@ footer {
   position: relative;
   overflow: hidden;
   border-bottom: none;
+  padding: 0;
+}
+
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 70% center;
+  display: block;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(8,20,10,0.97) 0%,
+    rgba(8,20,10,0.97) 55%,
+    rgba(8,20,10,0.65) 78%,
+    rgba(8,20,10,0.20) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
   padding: 4rem 1.25rem 4.5rem;
 }
 
 @media (min-width: 640px) {
-  .s-hero { padding: 5.5rem 2.5rem 6rem; }
-}
-
-.hero-content {
-  max-width: 900px;
-  margin: 0 auto;
+  .hero-content { padding: 5.5rem 2.5rem 6rem; }
 }
 
 .hero-logo {
