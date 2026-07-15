@@ -832,6 +832,8 @@ footer {
 }
 
 .hero-content {
+  position: relative;
+  z-index: 2;
   max-width: 900px;
   margin: 0 auto;
   padding: 3rem 1.25rem 3.5rem;
